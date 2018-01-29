@@ -1,0 +1,26 @@
+{
+    "id": "DDR4-4GB-2400-8bit",
+    "name": "Micron DDR4-2400 8bit (Rank size 4GB)",
+    "config": {
+        "MemoryId": "MICRON_4GB_DDR4-2400_8bit",
+        "MemoryType": "DDR4",
+        "MemoryRankSize": 4096,
+        "DevicesPerRank": 8,
+        "DeviceChipSize": 512,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 1200,
+        "REFI": 4680,
+        "RFC": 313,
+        "RAS": 39,
+        "RP": 16,
+        "idd0": 60.75,
+        "idd2n": 38.25,
+        "idd3n": 44.0,
+        "idd4r": 184.5,
+        "idd4w": 168.75,
+        "idd5b": 118.0,
+        "vdd": 1.2
+    }
+}

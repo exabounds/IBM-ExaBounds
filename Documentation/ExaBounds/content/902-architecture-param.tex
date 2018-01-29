@@ -1,0 +1,179 @@
+\section{Architecture parameters}
+\label{app:architecture-parameters}
+
+\newcommand*{\param}[3]{\par \noindent \textbf{#1 [#2]:}~#3}
+
+\subsection {Processor architecture parameters}
+
+\param{year}{-}{Year of introduction.}
+\param{Lnode}{nm}{Technology node.}
+\param{T}{K}{Operating temperature.}
+\param{inorder}{True/False}{Inorder core architecture.}
+\param{n0}{-}{Core issue width.}
+\param{n0dispatch}{-}{Core dispatch width.}
+\param{n0threads}{-}{Number of SMT threads per core.}
+\param{n0int}{-}{Number of integer functional units per core.}
+\param{n0DPFP}{-}{Number of floating-point functional units per core.}
+\param{n0mem}{-}{Number of load/store units per core.}
+\param{n0control}{-}{Number of branch units per core.}
+\param{n0vectorFU}{-}{Number of vector units per core.}
+\param{n0vectorbits}{bit}{Vector width.}
+\param{T0intop}{cycles}{Average integer instruction forwarding delay.}
+\param{T0intmul}{cycles}{Average integer multiply instruction forwarding delay.}
+\param{T0intdiv}{cycles}{Average integer division instruction forwarding delay.}
+\param{T0fpop}{cycles}{Average floating-point instruction forwarding delay.}
+\param{T0fpmul}{cycles}{Average floating-point multiply instruction forwarding delay.}
+\param{T0fpdiv}{cycles}{Average floating-point division instruction forwarding delay.}
+\param{T0vectorintop}{cycles}{Average vector integer instruction forwarding delay.}
+\param{T0vectorintmul}{cycles}{Average vector integer multiply instruction forwarding delay.}
+\param{T0vectorintdiv}{cycles}{Average vector integer division instruction forwarding delay.}
+\param{T0vectorfpop}{cycles}{Average vector floating-point instruction forwarding delay.}
+\param{T0vectorfpmul}{cycles}{Average vector floating-point multiply instruction forwarding delay.}
+\param{T0vectorfpdiv}{cycles}{Average vector floating-point division instruction forwarding delay.}
+\param{n0Bits}{bit}{Core data path width.}
+\param{n1}{-}{Number of cores per die.}
+\param{n2}{-}{Number of dies per socket.}
+\param{n3}{-}{Number of sockets per card.}
+\param{n4}{-}{Number of cards per rack unit.}
+\param{n5}{-}{Number of rack units per rack.}
+\param{n6}{-}{Number of racks per aisle.}
+\param{n7}{-}{Number of aisles per system.}
+\param{M0L1}{byte}{Private L1 cache size per core.}
+\param{L1dagran}{byte}{L1 data cache granularity (cache line size).}
+\param{L1dassoc}{-}{L1 data cache associativity.}
+\param{L1iagran}{byte}{L1 instruction cache granularity (cache line size).}
+\param{L1iassoc}{-}{L1 instruction cache associativity.}
+\param{M0L2}{byte}{Private L2 cache size per core.}
+\param{L2dagran}{byte}{L2 cache granularity (cache line size).}
+\param{L2dassoc}{-}{L2 cache associativity.}
+\param{M1}{byte}{Shared L3 cache size per die.}
+\param{L3dagran}{byte}{Shared L3 cache granularity (cache line size).}
+\param{L3dassoc}{-}{L3 cache associativity.}
+\param{M2}{byte}{DRAM memory per socket.}
+\param{nDIMMs}{-}{Number of memory DIMMs per socket.}
+\param{nRanksPerDIMM}{-}{Number of ranks per memory DIMM}
+\param{DRAMType}{-}{Memory architecture (string with name of memory architecture used).}
+\param{T0L1latency}{cycles}{L1 cache access latency.}
+\param{T0L2latency}{cycles}{L2 cache access latency (including L1 latency).}
+\param{T0L3latency}{cycles}{L3 cache access latency (including L1 and L2 latency).}
+\param{T0DRAMlatency}{cycles}{DRAM access latency (including cache latency).}
+\param{B0Dmo}{byte/s}{Core to L1/L2 cache bandwidth.}
+\param{B1Dmo}{byte/s}{L2 cache to L3 cache bandwidth.}
+\param{B2Dmo}{byte/s}{L3 cache to DRAM bandwidth.}
+\param{f0}{Hz}{Core clock speed.}
+\param{f1}{Hz}{Processor bus clock speed.}
+\param{n0pipe}{-}{Core pipeline depth.}
+\param{n0frontpipe}{-}{Core front-end pipeline depth.}
+\param{n0ROB}{-}{Core reorder buffer size.}
+\param{n0IQ}{-}{Core issue queue size.}
+\param{n0MSHR}{-}{Core miss-status holding register count.}
+\param{V0}{V}{Core voltage.}
+
+\subsection{Memory architecture parameters}
+
+\param{MemoryId}{-}{Name of memory configuration.}
+\param{MemoryType}{-}{Memory type (DDR3/4).}
+\param{MemoryRankSize}{Gb}{Size of a memory rank.}
+\param{DevicesPerRank}{-}{Number of memory devices (chips) per rank.}
+\param{DeviceChipSize}{MB}{Size of memory device.}
+\param{DataWidth}{bit}{Data bus width of a memory device.}
+\param{DataRate}{1/cycle}{Single or dual data rate.}
+\param{BurstLength}{-}{Maximum supported burst length.}
+\param{ClkMHz}{Hz}{Memory bus clock frequency.}
+\param{REFI}{cycles}{Refresh interval. DRAM is required to go through a refresh cycle once in this refresh interval.}
+\param{RFC}{cycles}{Refresh cycle. The time between the start of a refresh and activation commands.}
+\param{RAS}{cycles}{Row access strobe. Minimum time interval between a row activation and precharge command for data restoration.}
+\param{RP}{cycles}{Row precharge. Time to close an active row.}
+\param{idd0}{mA}{Operating one bank Active-Precharge current. The command consists of one ACT and one PRE command to one bank in sequence. All other banks are in precharged state.}
+\param{idd2n}{mA}{Precharge Standby Current. All banks are in precharged state.}
+\param{idd3n}{mA}{Active Standby current. One bank is in active state and others are in precharged state.}
+\param{idd4r}{mA}{Burst Read Current. Continuous burst reads using RD commands. All banks open.}
+\param{idd4w}{mA}{Burst Write Current. Continuous burst writes using WR commands. All banks open.}
+\param{idd5b}{mA}{Refresh current. Issued every tRFC cycles.}
+\param{vdd}{V}{Operating voltage.}
+
+\subsection{Network architecture parameters}
+
+\hspace{0.5cm} In the following list of parameters that describe the network architecture, "X:Y" means that parameter "Y" is defined as part of the "X" JSON object. The same for "X:Y:Z" which means that "Z" is defined as part of the "Y" JSON object which is a part of the "X" JSON object.\\
+
+\param{id}{-}{Network topology ID. Currently it can be fat-tree-2L, fat-tree-3L, 2DhyperX, full-mesh, torus-1D, torus-2D, torus-3D, torus-5D.}
+\param{name}{-}{Network topology name. Currently it can be Fat tree 2L, Fat tree 3L, 2DhyperX, Full-mesh, Torus-1D, Torus-2D, Torus-3D, Torus-5D.} \\
+
+ExaBounds currently provides network models for the following topologies:
+\begin{itemize}
+	\item uniform communication pattern: full-mesh, fat-tree-2L, fat-tree-3L, 2D Hyper-X, multi-dimensional tori.
+	\item shift communication pattern: full-mesh, fat-tree-2L, fat-tree-3L.
+	\item 2-dimension nearest-neighbor communication pattern: full-mesh, fat-tree-2L, fat-tree-3L, 2D Hyper-X.
+\end{itemize}
+
+\param{config:topologyDescription}{-}{A list of network topology parameters that describe the network configuration. 
+This object includes multiple parameters depending on the topology id (see below).} \\
+
+Topology description parameters per topology id:
+\begin{itemize}
+	\item full-mesh: "a" (number of switches in the network) and "p" (number of end nodes connected to a switch). 
+	%\item dragonfly: "a" (number of switches in a dragonfly group), "p" (number of end nodes connected to a switch),"h" (number of external links per switch that connects to switches in other groups). 
+	\item fat-tree-2L: "w0" (the number of up-links in level-1 switches), "w1" (the number of up-links in level-2 switches), "m1" (the number of down-links in level-1 switches) and "m2" (the number of down-links in level-2 switches).
+	\item fat-tree-3L: "w0" (the number of up-links in level-1 switches), "w1" (the number of up-links in level-2 switches), "w2" (the number of up-links in level-3 switches),"m1" (the number of down-links in level-1 switches), "m2" (the number of down-links in level-2 switches) and "m3" (the number of down-links in level-3 switches). 
+	\item 2DhyperX: "p" (the number of end nodes connected to a switch), "d1" (the number of switches in the X dimension) and "d2" (the number of switches in the Y dimension). 
+	\item torus-Nd: "p" (the number of end nodes connected to a switch), "d1" (the number of switches in the 1st dimension) ... "dN" (the number of switches in the N-th dimension), where N$\geq$1. \\
+\end{itemize} 
+
+\param{config:nodeStackLatency}{second}{End node MPI stack latency.}
+\param{config:switchLatency}{second}{Switch internal latency.}
+\param{config:nodeSwitchLinkLatency}{second}{Link latency between the end node and the switch to which the end node is connected.}
+\param{config:switch1Switch2LinkLatency}{second}{Link latency between two directly connected switches. For a fat-tree-2L and fat-tree-3L topologies, this is the link between a level-1 switch and a level-2 switch. For a full-mesh, this is the link between two directly connected switches. For a 2D Hyper-X, this is the link between two directly connected switches. Similar for multi-dimension tori topologies.}
+\param{config:switch2Switch3LinkLatency}{second}{[Valid only for fat-tree 3L topologies] Link latency between a level-2 switch and a level-3 switch.} \\
+%\param{config:intraGroupSwitchSwitchLinkLatency}{second}{[Valid only for dragonfly topologies] Link latency between two directly connected switches both 
+%	located in a dragonfly group.}
+%\param{config:interGroupSwitchSwitchLinkLatency}{second}{[Valid only for dragonfly topologies] Link latency between two directly connected switches 
+%	located in different dragonfly groups.} \\
+
+\param{config:nodeSwitchBandwidth}{byte/s}{Link bandwidth between the end node and the switch to which the end node is connected.}
+\param{config:switchSwitchBandwidth}{byte/s}{Link bandwidth between two directly connected switches. Currently supported: all switch-switch links have the same bandwidth.} \\
+
+Currently ExaBounds supports two possible combinations of types (electrical/optical) of links in the network: 1. All links in the network are electrical. 2. The end nodes are connected to their switch via electrical links and all the remainder links connecting switches are all optical. \\
+
+\param{config:nodeSwitchLinkType}{electrical/optical}{Type of link between the end node and the switch to which the end node is connected.}
+\param{config:switch1Switch2LinkType}{electrical/optical}{Type of link between two directly connected switches. For a fat-tree-2L and fat-tree-3L topologies, this is the link between a level-1 switch and a level-2 switch. For a full-mesh, this is the link between two directly connected switches. For a 2D Hyper-X, this is the link between two directly connected switches. Similar for multi-dimension tori topologies.}
+\param{config:switch2Switch3LinkType}{electrical/optical}{[Valid only for fat-tree 3L topologies] Type of link between a level-2 switch and a level-3 switch.}
+%\param{config:intraGroupSwitchSwitchLinkType}{electrical/optical}{[Valid only for dragonfly topologies] Type of link between two directly connected switches 
+%	both located in a dragonfly group.}
+%\param{config:interGroupSwitchSwitchLinkType}{electrical/optical}{[Valid only for dragonfly topologies] Type of link between two directly connected switches 
+%	both located in different dragonfly groups.} \\
+
+\param{config:electricalLinkEnergyPerBit}{pJ}{Energy per bit in electrical links.}
+\param{config:opticalLinkEnergyPerBit}{pJ}{Energy per bit in optical links.}
+\param{config:switchLogicEnergyPerBit}{pJ}{Energy per bit in the switch.}
+\param{config:switchStaticPower}{W}{Static power per switch.} \\
+
+When dealing with applications running on parallel systems, the MPI rank mapping plays an important role for the system performance. 
+For the uniform and shift communication patterns, ExaBounds currently provides network performance models only for linear mappings. 
+For the 2-dimension nearest-neighbor pattern, we cover more than just linear mappings as follows. \\
+
+ExaBounds models mappings where the application domain (the grid of processes that
+determines the 2-dimension nearest-neighbor pattern) is partitioned into equal-sized application sub-domains.
+The domain of hardware nodes is assumed to be also partitioned into same-sized hardware sub-domains. 
+E.g., for the full-mesh topology, the partitioning of the set of hardware nodes into sub-sets each belonging to the same switch is such a partition.
+The size of an application sub-domain should be equal to the size of a hardware sub-domain.
+The mappings that ExaBounds covers are those that bijectively map the application sub-domains onto the hardware sub-domains. 
+Thus not only must the total number of end nodes in the system match the total
+number of application processes, but the processes in an application sub-domain
+should also fully populate the compute nodes in a hardware sub-domain.  
+Currently, for the 2-dimension nearest-neighbor pattern, ExaBounds provides network performance models only for 
+full-mesh, fat-tree 2L, fat-tree 3L and 2D Hyper-X topologies. \\
+
+\param{config:mappingDescription:type}{linear}{Always set to linear. For uniform and shift application communication patterns, only this parameter is required for describing the mapping of MPI processes to end nodes. For the 2-dimension nearest-neighbor pattern, additional parameters should to be defined as follows (see below).} \\
+
+If the 2-dimension nearest-neighbor application domain is of size D1$\cdot$ D2. 
+\begin{itemize}
+	\item full-mesh: the mapping should be described by a tuple $\{$d11$,$d12$\}$, where d11$\cdot$d12$=$p, d11 divides D1 and d12 divides D2, meaning that the processes of each application sub-domain of size d11$\cdot$d12 is linearly mapped to the end nodes of a switch. 
+	\item fat-tree-2L: the mapping should similarly be described by a tuple $\{$d11$,$d12$\}$, where d11$\cdot$d12$=$m1, d11 divides D1 and d12 divides D2, meaning that the processes of each application sub-domain of size d11$\cdot$d12 is linearly mapped to the end nodes of a level-1 switch. 
+	\item fat-tree-3L: the mapping should be described by a 4 values $\{$d11$,$d12$,$d21$,$d22$\}$, where d21$\cdot$d22$=$m1, d11$\cdot$d12$=$m1$\cdot$m2, d21 divides d11, d22 divides d12, d11 divides D1 and d12 divides D2. In this case, the application domain is divided into sub-domains of size d11$\cdot$d12 and each sub-domain into sub-sub-domains of size d21$\cdot$d22. Each application sub-domain is mapped linearly to the end nodes of a level-2-switch-rooted sub-tree and each application sub-sub-domain is mapped linearly to the end nodes of a level-1 switch of the level-2-switch-rooted sub-tree. 
+	\item 2DhyperX: the application sub-domain is represented by a line in the application domain. The hardware sub-domain is represented by all the nodes connected to a set of m $\in\{$1,2, ... d1$\}$ consecutive switches in the X dimension of the network topology. To describe the mapping in the case of 2D Hyper-X topologies the user only has to define the "type" parameter as "linear".
+\end{itemize}
+
+\param{config:mappingDescription:d11}{-}{[Valid only for the 2-dimension nearest-neighbor pattern] This parameter needs to be defined for full-mesh, fat-tree-2L and fat-tree-3L topologies.}
+\param{config:mappingDescription:d12}{-}{[Valid only for the 2-dimension nearest-neighbor pattern] This parameter needs to be defined for full-mesh, fat-tree-2L and fat-tree-3L topologies.}
+\param{config:mappingDescription:d21}{-}{[Valid only for the 2-dimension nearest-neighbor pattern] This parameter needs to be defined fat-tree-3L topologies.}
+\param{config:mappingDescription:d22}{-}{[Valid only for the 2-dimension nearest-neighbor pattern] This parameter needs to be defined fat-tree-3L topologies.}

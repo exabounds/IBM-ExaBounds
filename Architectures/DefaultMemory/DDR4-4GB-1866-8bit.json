@@ -1,0 +1,26 @@
+{
+    "id": "DDR4-4GB-1866-8bit",
+    "name": "Micron DDR4-1866 8bit (Rank size 4GB)",
+    "config": {
+        "MemoryId": "MICRON_4GB_DDR4-1866_8bit",
+        "MemoryType": "DDR4",
+        "MemoryRankSize": 4096,
+        "DevicesPerRank": 8,
+        "DeviceChipSize": 512,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 933,
+        "REFI": 3644,
+        "RFC": 243,
+        "RAS": 32,
+        "RP": 13,
+        "idd0": 56.25,
+        "idd2n": 33.75,
+        "idd3n": 39.5,
+        "idd4r": 157.5,
+        "idd4w": 135.0,
+        "idd5b": 118.0,
+        "vdd": 1.2
+    }
+}

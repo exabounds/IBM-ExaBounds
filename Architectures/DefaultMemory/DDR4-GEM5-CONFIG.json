@@ -1,0 +1,26 @@
+{
+    "id": "DDR4-GEM5-CONFIG",
+    "name": "Micron DDR4-2400 8bit (Rank size 4GB) same as GEM5",
+    "config": {
+        "MemoryId": "Micron_4GB_DDR4-2400_8bit-GEM5",
+        "MemoryType": "DDR4",
+        "MemoryRankSize": 4096,
+        "DevicesPerRank": 8,
+        "DeviceChipSize": 512,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 1200,
+        "REFI": 4680,
+        "RFC": 210.5,
+        "RAS": 39,
+        "RP": 17,
+        "idd0": 64.0,
+        "idd2n": 50.0,
+        "idd3n": 67.0,
+        "idd4r": 160.0,
+        "idd4w": 180.0,
+        "idd5b": 192.0,
+        "vdd": 1.2
+    }
+}

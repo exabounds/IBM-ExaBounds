@@ -1,0 +1,50 @@
+Two ways to use MeSAP
+`````````````````````
+(a) With ExaBounds
+(b) Standalone
+
+Note: new file refers to added fils ExaBounds
+      existing file refers to files updated that already exists in ExaBounds
+ 
+----------------------------------------------
+(a) With ExaBounds (new files: 1,2	existing files: 3,4,5)
+----------------------------------------------
+Files -> 1. DRAMPowermodel.m 
+         2. PreDefinedMemorySpec.m 
+		 3. CPUPowerModels.m 
+         4. ArchitectureProperties.m 
+         5. PreDefinedMachineConfigs.m 
+
+To use the model, set ( DRAMmodel = "MeSAP"; ) in CPUPowerModels.m
+
+Example usage ->
+				KeyValue = GetMeSAPMemoryParameters["M2" (* Request power for M2 memory (DRAM) *), archProperties, algProperties];
+
+				'KeyValue' list can be 
+					1. "power" -> returns (drampowerExcludingIOTermPower + ioTermPower)
+					2. "drampowerExcludingIOTermPower" -> returns (drampowerExcludingIOTermPower)
+					3. "IOTermPower" -> returns (ioTermPower)
+
+Note: In PreDefinedMemorySpec.m "MemoryType" can be set to "DDR4", "DDR3", "DDR2" to get respective IO-term power. No support yet for other memory types.
+
+
+----------------------------------------------
+(b) Standalone (new files: 1,2,3,4)
+----------------------------------------------
+Files -> 1. DRAMPowermodel.m 
+		 2. PreDefinedMemoryHierarchy.m 
+         3. PreDefinedMemorySpec.m 
+         4. PreDefinedStatistics.m 
+
+Other dependencies -> requires ExaBounds environment, uses some utility functions (can be separated)
+
+Example uage -> 
+				TestRead[memSpec_, archMemCPU_, stats_]             (require better function name)
+				
+				memSpec -> list in PreDefinedMemorySpec.m
+				archMemCPU -> list in PreDefinedMemoryHierarchy.m
+				stats -> list in PreDefinedStatistics.m
+			
+Note: In PreDefinedMemorySpec.m "MemoryType" can be set to "DDR4", "DDR3", "DDR2" to get respective IO-term power. No support yet for other memory types.
+
+---End of file---			

@@ -1,0 +1,131 @@
+\section{IBM ExaBounds API}
+
+This appendix describes the most commonly used functions in the ExaBounds API for design-space explorations.
+
+\newcommand*{\call}[2]{\par\noindent\textbf{#1:}\\#2\vspace{5pt}}
+\newcommand*{\package}[1]{\vspace{10pt}\par\noindent Package~\textsc{#1}:\vspace{10pt}}
+
+\package{ExaBoundsGeneric}
+
+\call{GetKeyValue[keyValueList\_, key\_]}{Get the value of key \textsc{key} from key-value list \textsc{keyValueList}.}
+\call{SetKeyValue[keyValueList\_, key\_, value\_]}{Update the key \textsc{key} in \textsc{keyValueList} with value \textsc{value} and return the updated key-value list.}
+\call{MergeKeyValueList[baseList\_, UpdateKeyValuePairs\_]}{Update the \textsc{baseList} key-value pairs with the key-value pairs in \textsc{UpdateKeyValuePairs}, returns the resulting key-value list. All keys in \textsc{UpdatekeyValuePairs} have to be present already in \textsc{baseList}.}
+\call{GetAlgorithmName[algInfo\_, index\_]}{Get the name of algorithm with index \textsc{Index} from the \textsc{ExaBoundsAlgInfo} structure. Pass \textsc{ExaBoundsAlgInfo} as the first argument.}
+\call{GetAlgorithmKeyValueList[algInfo\_, algoIndex\_,scalingParameters\_, dataProfileId\_,threadId\_] or GetAlgorithmKeyValueList[algInfo\_, sel\_List]}{Retrieve algorithm properties as a key-values list from the \textsc{ExaBoundsAlgInfo} structure. The algorithm is identified as a 4-tuple describing the index, scaling parameters, data profile and thread id, either as individual arguments or as a list.}
+\call{SetAlgorithmKeyValue[algInfo\_, sel\_List, key\_, value\_]}{Update a property \textsc{key} of a specific algorithm (identified with a 4-tuple in \textsc{sel}) with \textsc{value} in the \textsc{ExaBoundsAlgInfo} structure. The function is HoldFirst, and does not return anything.}
+
+\textit{The following functions can be used to determine the 4-tuple of algorithm name, scaling configuration, data profile, and thread for applications loaded in the \textsc{ExaBoundsAlgInfo} structure:}\newline
+
+\call{GetScalingParameters[algDataAssociation\_]}{Get the scaling parameters that where used to describe the scale of the algorithm. \textsc{algDataAssociation} is an Association with data for one application, identified as \textsc{ExaBoundsAlgInfo["algorithm name"]}.}
+\call{GetScalingConfigurations[algDataAssociation\_]}{Get all scaling configurations that where profiled.}
+\call{GetScalingConfigurationsHaving[algDataAssociation\_,partialScalingConfiguration\_]}{Get all scaling configurations that have certain scaling parameters. The scaing configuration is given as an Association.}
+\call{GetDataProfileCount[algInfo\_, alg\_, scaling\_]}{Get the number of data profiles from an application in \textsc{ExaBoundsAlgInfo} with name \textsc{alg} and scaling properties \textsc{scaling}.}
+\call{GetThreads[algInfo\_, alg\_, scaling\_, profile\_]}{Get the thread identifiers for an application in \textsc{ExaBoundsAlgInfo} with name \textsc{alg}, scaling properties \textsc{scaling} and data profile \textsc{profile}.} 
+
+\package{AlgorithmProperties}
+
+\call{AddAlgorithm[algInfoStructure\_, jsonfile\_]}{Load a IBM Platform-Independent Software Analysis file into \textsc{ExaBoundsAlgInfo} from file \textsc{jsonfile}.}
+\call{AppendAlgorithmAnalysis[algInfoStructure\_, newAlgoAnalysis\_}{Append the application profiles in \textsc{newAlgoAnalysis} to \textsc{ExaBoundsAlgInfo}. Used to append algorithms in IBM Exascale Extrapolator *.m-files}
+
+\package{VectorSizeConvert}
+
+\call{GetAlgorithmVectorProperties[archProperties\_, algProperties\_]}{Convert the application properties in \textsc{algProperties} to the vector size in the architecture described by \textsc{archProperties} and return the result. Set the architected vector width to zero for purely scalar instructions.}
+
+\package{PreDefinedMachineConfigs}
+
+\call{LoadArchJSON[file\_]}{Load a processor architecture from \textsc{file}.}
+\call{predefinedConfigID2Name}{Replacement list with all available processor architectures and human-readable name.}
+\call{predefinedconfig[ configname\_ ]}{Retrieve an architecture named \textsc{configname} (name matching id in \textsc{predefinedConfigID2Name}. Always update \textsc{ExaBoundsState} using \textsc{MergeKeyValueList}.}
+
+\package{PreDefinedNetworkConfigs}
+
+\call{LoadNetworkJSON[file\_]}{Load a network architecture from \textsc{file}.}
+\call{predefinedConfigID2NameNetwork}{Replacement list with all available network architectures and human-readable name.}
+\call{GetNetworkConfig[ configname\_ ]}{Retrieve a network architecture named \textsc{configname} (name matching id in \textsc{predefinedConfigID2NameNetwork}. Always update \textsc{ExaBoundsState} using \textsc{MergeKeyValueList}.}
+
+\package{PreDefinedMemorySpec}
+
+\call{LoadMemJSON[file\_]}{Load a memory architecture from \textsc{file}.}
+\call{predefinedConfigID2NameMem}{Replacement list with all available memory architectures and human-readable name.}
+\call{predefinedconfigMem[ configname\_ ]}{Retrieve a memory architecture named \textsc{configname} (name matching id in \textsc{predefinedConfigID2NameNetwork}. Note that the memory architecture name is stored in \textsc{ExaBoundsState} in key \textit{DRAMType}, these properties are not merged into \textsc{ExaBoundsState}.}
+
+\package{CPUPerformanceModels}
+
+\call{CacheHitrate[cacheLevel\_, archProperties\_, algProperties\_]}{Get the hit rate on cache level \textsc{cacheLevel} for application \textsc{algProperties} running on architecture \textsc{archProperties}. The cache levels are listed in Table~\ref{tbl:300:levels} and can be \textsc{MemoryL1Cache[]}, \textsc{MemoryL2Cache[]}, or \textsc{MemoryL3Cache[]}.}
+\call{CacheMissrate[cacheLevel\_, archProperties\_, algProperties\_]}{Get the miss rate on cache level \textsc{cacheLevel} for application \textsc{algProperties} running on architecture \textsc{archProperties}.}
+\call{AchievedFLOPSi[i\_, archProperties\_, algProperties\_]}{Get the achieved performance at layer \textsc{i} for application \textsc{algProperties} running on architecture \textsc{archProperties}. The layers are listed in Table~\ref{tbl:300:levels} and range from \textsc{CoreLayer[]} to \textsc{SystemLayer[]}.}
+\call{BappiDmo[i\_, archProperties\_, algProperties\_]}{Get the achieved memory bandwidth at layer \textsc{i} for application \textsc{algProperties} running on architecture \textsc{archProperties}.}
+\call{d0[archProperties\_, algProperties\_]}{Get the performance in cycles per instruction for application \textsc{algProperties} running on architecture \textsc{archProperties}.}
+\call{ExecutionCycles[archProperties\_, algProperties\_]}{Get the execution time in clock cycles for application \textsc{algProperties} running on architecture \textsc{archProperties}.}
+\call{ExecutionSeconds[archProperties\_, algProperties\_]}{Get the execution time in seconds for application \textsc{algProperties} running on architecture \textsc{archProperties}.}
+\call{ClearCPUPerformanceModelsCache[]}{Clear all cached results from the performance models.}
+
+\package{CommunicationPerformanceModels}
+
+\call{GetAverageNetworkLinkLatency[archProperties\_,algProperties\_,tag\_]}{Returns the average number of links (if tag is 1) or the average link latency (if the tag is 0) that an inter-process communication (MPI) message will incur while traversing the network described in \textsc{archProperties} for the communication pattern in \textsc{algProperties}, when the mapping of MPI processes to end nodes is linear and according to the \textit{mappingDescription} parameter in \textsc{archProperties} and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is 0 (if  the topology or the pattern is not supported). }
+
+\call{UniformAverageNetworkLinkLatency[archProperties\_,tag\_]}{Returns the average number of links (if tag is 1) or the average link latency (if the tag is 0) that an inter-process communication (MPI) message will incur while traversing the network described in \textsc{archProperties} when the communication pattern is uniform, the mapping of MPI processes to end nodes is linear and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is 0 (if  the topology or the mapping is not supported).}
+
+\call{NNE2DAverageNetworkLinkLatency[archProperties\_,tag\_,D1\_,D2\_]}{Returns the average number of links (if tag is 1) or the average link latency (if the tag is 0) that an inter-process communication (MPI) message will incur while traversing the network described in \textsc{archProperties} when the communication pattern is 2-dimension nearest-neighbor (the 2-dimension application-domain being defined as D1$\cdot$D2), the mapping of MPI processes to end nodes is linear according to the \textit{mappingDescription} parameter in \textsc{archProperties} and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is 0 (if  the topology or the mapping is not supported).}
+
+\call{ShiftAverageNetworkLinkLatency[archProperties\_,tag\_,shiftValue\_]}{Returns the average number of links (if tag is 1) or the average link latency (if the tag is 0) that an inter-process communication message (MPI) will incur while traversing the network described in \textsc{archProperties} when the communication pattern is shift (the shift value being "shiftValue"), the mapping of MPI processes to end nodes is linear and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is 0 (if  the topology or the mapping is not supported).}
+
+
+\call{NodeEffectiveBandwidth[archProperties\_,algProperties\_]}{Returns the node effective TX bandwidth for the network described in \textsc{archProperties} and the communication pattern in \textsc{algProperties}, for when the mapping of MPI processes to end nodes is linear according to the \textit{mappingDescription} parameter in \textsc{archProperties} and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is the value of the \textit{switchSwitchBandwidth} parameter (if the topology is not supported).}
+
+\call{UniformNodeEffectiveBandwidth[archProperties\_]}{Returns the node effective bandwidth for the network described in \textsc{archProperties} when the communication pattern is uniform, the mapping of MPI processes to end nodes is linear and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is the value of the \textit{switchSwitchBandwidth} parameter (if the topology is not supported).}
+
+\call{NNE2DNodeEffectiveBandwidth[archProperties\_,D1\_,D2\_]}{Returns the node effective bandwidth for the network described in \textsc{archProperties} when the communication pattern is 2-dimension nearest-neighbor (the 2-dimension application-domain being defined as D1$\cdot$D2), the mapping of MPI processes to end nodes is linear and according to the \textit{mappingDescription} parameter in \textsc{archProperties} and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is the value of the \textit{switchSwitchBandwidth} parameter (if the topology is not supported).}
+
+\call{ShiftNodeEffectiveBandwidth[archProperties\_,shiftValue\_]}{Returns the node effective bandwidth for the network described in \textsc{archProperties} when the communication pattern is shift (the shift value being \textit{shiftValue}), the mapping of MPI processes to end nodes is linear and the routing is shortest-path with optimal routing when multiple equal-hop routes are available. Default value is the value of the \textit{switchSwitchBandwidth} parameter (if the topology is not supported).}
+
+
+\call{GetCommunicationTime[archProperties\_,algProperties\_]}{Returns the communication time for the software profile in \textsc{algProperties} and the network hardware description in \textsc{archProperties}. Important note: this is not necessarily the communication time of the application, but the communication time per class/cluster of processes (if \textsc{algProperties} was extracted from an IBM Exascale Extrapolator file) or per MPI process (if \textsc{algProperties} was extracted from a IBM Platform-Independent Software Analysis file with multiple process profiles).}
+
+
+\package{CommunicationPowerModels}
+
+\call{GetNumberElectricalLinks[archProperties\_,algProperties\_,level\_]}{Returns the average number of electrical links that an inter-process communication (MPI) message traverses through the network. If level is 1, then only the end nodes connected to their switches use electrical links, thus the function returns 2. If level is 2, then all links in the network will be electrical and the function returns the average number of links traversed by an inter-process communication (MPI) message, which is the return value of averageNetworkLinkLatency[1, algProperties\_,archProperties\_]. The return value is either 2 (when only the links connecting the end nodes to the switches are electrical), or the return value of the GetAverageNetworkLinkLatency[archProperties\_,algProperties\_,1] function call (when all links are electrical).}
+
+\call{GetNumberOpticalLinks[archProperties\_,algProperties\_,level\_]}{Returns the average number of optical links that an inter-process communication (MPI) message traverses through the network. If level is 1, then all links except the end nodes connected to their switches use optical links, thus the function returns the difference between the average number of traversed links and the average number of traversed electrical links. If level is 2, then all links in the network will be electrical and the function returns 0. The return value is either GetAverageNetworkLinkLatency[archProperties\_,algProperties\_,1]-2 (when all except the links connecting the end nodes to the switches are optical), or 0 (when no links are optical).}
+
+\call{GetNetworkDynamicEnergy[archProperties\_,algProperties\_]}{Returns the dynamic energy per class/cluster of processes (if \textsc{algProperties} was extracted from an IBM Exascale Extrapolator file) or per process (if \textsc{algProperties} was extracted from a IBM Platform-Independent Software Analysis file with multiple process profiles).}
+
+\call{GetTotalNumberSwitches[archProperties\_]}{Returns the total number of switches in the network described in \textsc{archProperties}. Default value is 1 (if the topology is not supported).}
+
+\call{GetNetworkStaticEnergy[archProperties\_,algProperties\_,appTime\_]}{Returns the static power of the network described in \textsc{archProperties}, when running the application in \textsc{algProperties} for a total duration of time of \textsc{appTime}, comprising both compute and communication time.}
+
+
+\package{CPUMultithreadedModels}
+
+All multithreaded model functions have the same function prototype as their respective single-core versions with two optional arguments: the first argument \textsc{thread} and the last argument \textsc{homogeneousThreads}. If thread is specified, the function returns the value for the specified thread. If thread is not specified, a list is returned with a value for each thread. 
+The last optional argument is used to specify the workload. The workload can be specified as:
+\begin{itemize}
+ \item a single profile in \textsc{algProperties}, with \textsc{homogeneousThreads} unspecified (or set to 1) for a single-threaded workload (only one core used), e.g. \textsc{MCdo[architecture, profile1]}.
+ \item a single profile in \textsc{algProperties}, with \textsc{homogeneousThreads} set to a value \textit{N} for a workload with \textit{N} identical threads (when \textit{N} is larger than the core count, the number of threads will equal the number of cores), e.g. \textsc{MCdo[architecture, profile1, 14]} for 14 threads.
+ \item a replacement list of profiles in \textsc{algProperties}. Specify which profile runs on which core, e.g. \textsc{MCdo[architecture, \{1 $\rightarrow$ profile1, 4 $\rightarrow$ profile2\}]}.
+\end{itemize}
+
+\call{MCd0[archProperties\_, algProperties\_, homogeneousThreads\_]}{Multi-core version of \textsc{d0}, retrieve performance in cycles per instruction for all threads specified by \textsc{algProperties} and \textsc{homogeneousThreads} as specified above.}
+\call{MCd0[thread\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Multi-core version of \textsc{d0}, retrieve performance in cycles per instruction for \textsc{thread}.}
+\call{MCExecutionSeconds[thread\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Multi-core version of \textsc{ExecutionSeconds}.}
+\call{MCExecutionCycles[thread\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Multi-core version of \textsc{ExecutionCycles}.}
+\call{MCCacheMissrate[thread\_, level\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Multi-core version of \textsc{CacheMissrate}.}
+\call{MCBappiDmo[thread\_, level\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Multi-core version of \textsc{BappiDmo}.}
+\call{MCAchievedFLOPSi[thread\_, level\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Multi-core version of \textsc{AchievedFLOPSi}.}
+
+\call{MCGetKeyValue[algProperties\_, key\_]}{Multi-core version of \textsc{GetKeyValue}. This function returns per-thread values for a given key.}
+
+\package{CPUPowerModels}
+
+The workload for the power models can be specified in a similar way as for the multi-threaded performance models in \textsc{CPUMultithreadedModels}.
+
+\call{Poweri[i\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Get the system power consumption at layer \textsc{i}.}
+\call{PoweriMemory[i\_, archProperties\_, algProperties\_, homogeneousThreads\_]}{Get the memory power consumption at layer \textsc{i}.}
+\call{AreaProcessor[archProperties\_, algProperties\_, homogeneousThreads\_]}{Get the total chip area at layer \textsc{i} (McPAT results).}
+\call{ClearCPUPowerModelsCache[]}{Clear all cached results from the power models.}
+\call{DRAMmodel}{Set the DRAM model, set to either $\mathtt{"}$MeSAP$\mathtt{"}$ or $\mathtt{"}$CACTI$\mathtt{"}$.}
+
+\package{DSEVisualization}
+
+\call{ParetoPlot[data\_List, tooltip\_List]}{Displays Pareto plot. \textsc{Data} is a list of tuples, where each tuple is a design point. \textsc{Tooltip} is an optional argument that can be used to pass a list of human-readable strings describing each design point (both input lists should have the same length). This string is displayed in the plot if the mouse pointer is hovered over a design point. \textsc{ParetoPlot[]} accepts similar options as the Mathematica function \textsc{ListPlot}. Besides the default options, additional options are: \textsc{PlotType}---select the plot type, valid values are \textsc{ListPlot}, \textsc{ListLogPlot}, \textsc{ListLogLinearPlot}, and \textsc{ListLogLogPlot} (default)---, \textsc{ShowParetoPoints}---separately show Pareto points (default: True)---, \textsc{ParetoPointsMarker}---marker used for the Pareto points (default: cross)---, and \textsc{TooltipPrefix}---string prefix used for all tooltips in \textsc{tooltip} (default: Point).}

@@ -1,0 +1,26 @@
+{
+    "id": "S_DDR3_2GB_D-die_x4",
+    "name": "Samsung_2GB_DDR3-1333_-bit_x4",
+    "config": {
+        "MemoryId": "Samsung_2GB_DDR3-1333_-bit_x4",
+        "MemoryType": "DDR3",
+        "MemoryRankSize": 2048,
+        "DevicesPerRank": 8,
+        "DeviceChipSize": 256,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 666.5,
+        "REFI": 5198,
+        "RFC": 106.64,
+        "RAS": 9,
+        "RP": 24,
+        "idd0": 105,
+        "idd2n": 47,
+        "idd3n": 50,
+        "idd4r": 200,
+        "idd4w": 205,
+        "idd5b": 220,
+        "vdd": 1.5
+    }
+}

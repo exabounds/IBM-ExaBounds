@@ -1,0 +1,27 @@
+{
+    "id": "DRAMSpec_hmc_2_1600",
+    "name": "DRAMSpec_hmc_2_DDR_ON_16_4096_16_32_1600_128_200_8_0_1_ON_3.9_1_1_2",
+    "config": {
+        "MemoryId": "DRAMSpec_hmc_2_DDR_ON_16_4096_16_32_1600_128_200_8_0_1_ON_3.9_1_1_2",
+        "MemoryType": "dramSpec",
+        "MemoryRankSize": 4096,
+        "DevicesPerRank": 32,
+        "DeviceChipSize": 128,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 1600,
+        "REFI": 3125,
+        "RFC": 81,
+        "RAS": 37,
+        "RP": 18,
+        "idd0": 47.9139,
+        "idd2n": 30.75,
+        "idd3n": 32.75,
+        "idd4r": 242.376,
+        "idd4w": 247.779,
+        "idd5b": 326.294,
+        "vdd": 1.1,
+        "area": 41.6913
+    }
+}

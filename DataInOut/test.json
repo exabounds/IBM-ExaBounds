@@ -1,0 +1,5483 @@
+{
+    "application": "graph500_omp_csr",
+    "benchmark": "graph500",
+    "appScale": {
+        "scale": 16,
+        "factor": 16,
+        "processes": 1,
+        "threads": 16
+    },
+    "appConfig": {
+        "testFile": "NA",
+        "exeCommand": "./exe_omp_csr_s16_e16_all -s 16 -e 16 ",
+        "compilerOptimization": "O3",
+        "ilpCtrlSerialized": "disabled",
+        "branchEntropyAll": "no",
+        "branchEntropyCond": "no",
+        "libraryCommit": "e976b9cfe102301de8b98913651d8f3dd8114d5b"
+    },
+    "time": "2015-04-07 22:54:59",
+    "threads": [
+        {
+            "threadId": 0,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 6349900779,
+                "load_instructions": 591754838,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 2427,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 134544,
+                "load_int_64bits_instructions": 560518234,
+                "load_misc_instructions": 31099632,
+                "store_instructions": 96244793,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 220,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 2096983,
+                "store_int_64bits_instructions": 75138614,
+                "store_misc_instructions": 19008975,
+                "address_arith_instructions": 668729589,
+                "total_integer_arith_instructions": 875560273,
+                "int_add_instructions": 536275836,
+                "int_sub_instructions": 101807579,
+                "int_mul_instructions": 127098382,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 16777217,
+                "int_urem_instructions": 93601258,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 245087,
+                "fp_add_instructions": 66200,
+                "fp_sub_instructions": 516,
+                "fp_mul_instructions": 177907,
+                "fp_div_instructions": 464,
+                "fp_rem_instructions": 0,
+                "control_instructions": 3321150154,
+                "misc_instructions": 796216045
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 138683277,
+                    "arithmetic_mean": 45.787,
+                    "arithmetic_mean_ctrl": 23.9477,
+                    "arithmetic_mean_int": 6.3133,
+                    "arithmetic_mean_fp": 0.0017,
+                    "arithmetic_mean_mem": 9.7829
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            19352694
+                        ],
+                        [
+                            1,
+                            36559313
+                        ],
+                        [
+                            2,
+                            33197198
+                        ],
+                        [
+                            4,
+                            83357762
+                        ],
+                        [
+                            8,
+                            18893935
+                        ],
+                        [
+                            16,
+                            18039406
+                        ],
+                        [
+                            32,
+                            2892614
+                        ],
+                        [
+                            64,
+                            20443911
+                        ],
+                        [
+                            128,
+                            4655755
+                        ],
+                        [
+                            256,
+                            7525448
+                        ],
+                        [
+                            512,
+                            12001021
+                        ],
+                        [
+                            1024,
+                            18087975
+                        ],
+                        [
+                            2048,
+                            25364800
+                        ],
+                        [
+                            4096,
+                            41767527
+                        ],
+                        [
+                            8192,
+                            37334286
+                        ],
+                        [
+                            16384,
+                            38293598
+                        ],
+                        [
+                            32768,
+                            34793992
+                        ],
+                        [
+                            65536,
+                            28601736
+                        ],
+                        [
+                            131072,
+                            22293067
+                        ],
+                        [
+                            262144,
+                            16136863
+                        ],
+                        [
+                            524288,
+                            9695974
+                        ],
+                        [
+                            1048576,
+                            5569494
+                        ],
+                        [
+                            2097152,
+                            5010961
+                        ],
+                        [
+                            4194304,
+                            143270873
+                        ],
+                        [
+                            8388608,
+                            723244
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0281
+                        ],
+                        [
+                            1,
+                            0.0812
+                        ],
+                        [
+                            2,
+                            0.1295
+                        ],
+                        [
+                            4,
+                            0.2506
+                        ],
+                        [
+                            8,
+                            0.2781
+                        ],
+                        [
+                            16,
+                            0.3043
+                        ],
+                        [
+                            32,
+                            0.3085
+                        ],
+                        [
+                            64,
+                            0.3382
+                        ],
+                        [
+                            128,
+                            0.345
+                        ],
+                        [
+                            256,
+                            0.3559
+                        ],
+                        [
+                            512,
+                            0.3734
+                        ],
+                        [
+                            1024,
+                            0.3997
+                        ],
+                        [
+                            2048,
+                            0.4365
+                        ],
+                        [
+                            4096,
+                            0.4972
+                        ],
+                        [
+                            8192,
+                            0.5515
+                        ],
+                        [
+                            16384,
+                            0.6072
+                        ],
+                        [
+                            32768,
+                            0.6577
+                        ],
+                        [
+                            65536,
+                            0.6993
+                        ],
+                        [
+                            131072,
+                            0.7317
+                        ],
+                        [
+                            262144,
+                            0.7552
+                        ],
+                        [
+                            524288,
+                            0.7693
+                        ],
+                        [
+                            1048576,
+                            0.7774
+                        ],
+                        [
+                            2097152,
+                            0.7846
+                        ],
+                        [
+                            4194304,
+                            0.9929
+                        ],
+                        [
+                            8388608,
+                            0.9939
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            2,
+                            6
+                        ],
+                        [
+                            8,
+                            7268624
+                        ],
+                        [
+                            16,
+                            170116990
+                        ],
+                        [
+                            32,
+                            170916680
+                        ],
+                        [
+                            64,
+                            5156505028
+                        ],
+                        [
+                            128,
+                            246920510
+                        ],
+                        [
+                            256,
+                            218563140
+                        ],
+                        [
+                            512,
+                            379573715
+                        ],
+                        [
+                            1024,
+                            33834
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 11125185060,
+                "writes": 4692808317
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 1,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 81613729,
+                "load_instructions": 26741738,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2695,
+                "load_int_64bits_instructions": 15054883,
+                "load_misc_instructions": 11684160,
+                "store_instructions": 875754,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 872851,
+                "store_misc_instructions": 2704,
+                "address_arith_instructions": 13323927,
+                "total_integer_arith_instructions": 6961974,
+                "int_add_instructions": 6959102,
+                "int_sub_instructions": 2868,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 30395297,
+                "misc_instructions": 3315039
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262154,
+                    "arithmetic_mean": 311.3197,
+                    "arithmetic_mean_ctrl": 115.9444,
+                    "arithmetic_mean_int": 26.5568,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 156.1731
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139733
+                        ],
+                        [
+                            1,
+                            1109660
+                        ],
+                        [
+                            2,
+                            563730
+                        ],
+                        [
+                            4,
+                            10584898
+                        ],
+                        [
+                            8,
+                            569918
+                        ],
+                        [
+                            16,
+                            964389
+                        ],
+                        [
+                            32,
+                            320145
+                        ],
+                        [
+                            64,
+                            244880
+                        ],
+                        [
+                            128,
+                            195792
+                        ],
+                        [
+                            256,
+                            270861
+                        ],
+                        [
+                            512,
+                            284002
+                        ],
+                        [
+                            1024,
+                            409477
+                        ],
+                        [
+                            2048,
+                            573822
+                        ],
+                        [
+                            4096,
+                            724980
+                        ],
+                        [
+                            8192,
+                            806657
+                        ],
+                        [
+                            16384,
+                            793648
+                        ],
+                        [
+                            32768,
+                            707463
+                        ],
+                        [
+                            65536,
+                            621966
+                        ],
+                        [
+                            131072,
+                            793240
+                        ],
+                        [
+                            262144,
+                            1174541
+                        ],
+                        [
+                            524288,
+                            1019934
+                        ],
+                        [
+                            1048576,
+                            1654047
+                        ],
+                        [
+                            2097152,
+                            1084426
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.005
+                        ],
+                        [
+                            1,
+                            0.0452
+                        ],
+                        [
+                            2,
+                            0.0656
+                        ],
+                        [
+                            4,
+                            0.4489
+                        ],
+                        [
+                            8,
+                            0.4695
+                        ],
+                        [
+                            16,
+                            0.5044
+                        ],
+                        [
+                            32,
+                            0.516
+                        ],
+                        [
+                            64,
+                            0.5249
+                        ],
+                        [
+                            128,
+                            0.532
+                        ],
+                        [
+                            256,
+                            0.5418
+                        ],
+                        [
+                            512,
+                            0.5521
+                        ],
+                        [
+                            1024,
+                            0.5669
+                        ],
+                        [
+                            2048,
+                            0.5877
+                        ],
+                        [
+                            4096,
+                            0.6139
+                        ],
+                        [
+                            8192,
+                            0.6431
+                        ],
+                        [
+                            16384,
+                            0.6719
+                        ],
+                        [
+                            32768,
+                            0.6975
+                        ],
+                        [
+                            65536,
+                            0.72
+                        ],
+                        [
+                            131072,
+                            0.7487
+                        ],
+                        [
+                            262144,
+                            0.7913
+                        ],
+                        [
+                            524288,
+                            0.8282
+                        ],
+                        [
+                            1048576,
+                            0.8881
+                        ],
+                        [
+                            2097152,
+                            0.9273
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            5201697
+                        ],
+                        [
+                            16,
+                            62591720
+                        ],
+                        [
+                            32,
+                            12944758
+                        ],
+                        [
+                            64,
+                            836846
+                        ],
+                        [
+                            128,
+                            24482
+                        ],
+                        [
+                            256,
+                            13471
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 125140803,
+                "writes": 63112713
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 2,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 84032190,
+                "load_instructions": 27729455,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2684,
+                "load_int_64bits_instructions": 15551803,
+                "load_misc_instructions": 12174968,
+                "store_instructions": 843221,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 840329,
+                "store_misc_instructions": 2693,
+                "address_arith_instructions": 13752597,
+                "total_integer_arith_instructions": 7176502,
+                "int_add_instructions": 7173659,
+                "int_sub_instructions": 2839,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 31215528,
+                "misc_instructions": 3314887
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262154,
+                    "arithmetic_mean": 320.5451,
+                    "arithmetic_mean_ctrl": 119.0732,
+                    "arithmetic_mean_int": 27.3751,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 161.4519
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139715
+                        ],
+                        [
+                            1,
+                            1105771
+                        ],
+                        [
+                            2,
+                            568751
+                        ],
+                        [
+                            4,
+                            11079879
+                        ],
+                        [
+                            8,
+                            570043
+                        ],
+                        [
+                            16,
+                            895525
+                        ],
+                        [
+                            32,
+                            371920
+                        ],
+                        [
+                            64,
+                            262373
+                        ],
+                        [
+                            128,
+                            203444
+                        ],
+                        [
+                            256,
+                            280310
+                        ],
+                        [
+                            512,
+                            296360
+                        ],
+                        [
+                            1024,
+                            434555
+                        ],
+                        [
+                            2048,
+                            602596
+                        ],
+                        [
+                            4096,
+                            782409
+                        ],
+                        [
+                            8192,
+                            829537
+                        ],
+                        [
+                            16384,
+                            811342
+                        ],
+                        [
+                            32768,
+                            719671
+                        ],
+                        [
+                            65536,
+                            620917
+                        ],
+                        [
+                            131072,
+                            738870
+                        ],
+                        [
+                            262144,
+                            1117814
+                        ],
+                        [
+                            524288,
+                            1048923
+                        ],
+                        [
+                            1048576,
+                            1694137
+                        ],
+                        [
+                            2097152,
+                            1349178
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0048
+                        ],
+                        [
+                            1,
+                            0.0435
+                        ],
+                        [
+                            2,
+                            0.0634
+                        ],
+                        [
+                            4,
+                            0.4512
+                        ],
+                        [
+                            8,
+                            0.4712
+                        ],
+                        [
+                            16,
+                            0.5025
+                        ],
+                        [
+                            32,
+                            0.5155
+                        ],
+                        [
+                            64,
+                            0.5247
+                        ],
+                        [
+                            128,
+                            0.5318
+                        ],
+                        [
+                            256,
+                            0.5416
+                        ],
+                        [
+                            512,
+                            0.552
+                        ],
+                        [
+                            1024,
+                            0.5672
+                        ],
+                        [
+                            2048,
+                            0.5883
+                        ],
+                        [
+                            4096,
+                            0.6157
+                        ],
+                        [
+                            8192,
+                            0.6447
+                        ],
+                        [
+                            16384,
+                            0.6731
+                        ],
+                        [
+                            32768,
+                            0.6983
+                        ],
+                        [
+                            65536,
+                            0.72
+                        ],
+                        [
+                            131072,
+                            0.7459
+                        ],
+                        [
+                            262144,
+                            0.785
+                        ],
+                        [
+                            524288,
+                            0.8217
+                        ],
+                        [
+                            1048576,
+                            0.881
+                        ],
+                        [
+                            2097152,
+                            0.9283
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            5196070
+                        ],
+                        [
+                            16,
+                            65702151
+                        ],
+                        [
+                            32,
+                            12241590
+                        ],
+                        [
+                            64,
+                            854812
+                        ],
+                        [
+                            128,
+                            23391
+                        ],
+                        [
+                            256,
+                            13421
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 128808638,
+                "writes": 65202967
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 3,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 88444858,
+                "load_instructions": 29571092,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2691,
+                "load_int_64bits_instructions": 16238408,
+                "load_misc_instructions": 13329993,
+                "store_instructions": 836334,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 833435,
+                "store_misc_instructions": 2700,
+                "address_arith_instructions": 14878773,
+                "total_integer_arith_instructions": 7726929,
+                "int_add_instructions": 7724105,
+                "int_sub_instructions": 2820,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 32636256,
+                "misc_instructions": 2795474
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262154,
+                    "arithmetic_mean": 337.3774,
+                    "arithmetic_mean_ctrl": 124.4926,
+                    "arithmetic_mean_int": 29.4747,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 172.7465
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139717
+                        ],
+                        [
+                            1,
+                            912687
+                        ],
+                        [
+                            2,
+                            542824
+                        ],
+                        [
+                            4,
+                            12205978
+                        ],
+                        [
+                            8,
+                            557413
+                        ],
+                        [
+                            16,
+                            842638
+                        ],
+                        [
+                            32,
+                            347142
+                        ],
+                        [
+                            64,
+                            255735
+                        ],
+                        [
+                            128,
+                            195116
+                        ],
+                        [
+                            256,
+                            282791
+                        ],
+                        [
+                            512,
+                            306533
+                        ],
+                        [
+                            1024,
+                            451690
+                        ],
+                        [
+                            2048,
+                            651525
+                        ],
+                        [
+                            4096,
+                            821047
+                        ],
+                        [
+                            8192,
+                            904444
+                        ],
+                        [
+                            16384,
+                            892174
+                        ],
+                        [
+                            32768,
+                            786808
+                        ],
+                        [
+                            65536,
+                            668038
+                        ],
+                        [
+                            131072,
+                            731687
+                        ],
+                        [
+                            262144,
+                            1195328
+                        ],
+                        [
+                            524288,
+                            1091981
+                        ],
+                        [
+                            1048576,
+                            1863214
+                        ],
+                        [
+                            2097152,
+                            1686761
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0045
+                        ],
+                        [
+                            1,
+                            0.0346
+                        ],
+                        [
+                            2,
+                            0.0524
+                        ],
+                        [
+                            4,
+                            0.4538
+                        ],
+                        [
+                            8,
+                            0.4722
+                        ],
+                        [
+                            16,
+                            0.4999
+                        ],
+                        [
+                            32,
+                            0.5113
+                        ],
+                        [
+                            64,
+                            0.5197
+                        ],
+                        [
+                            128,
+                            0.5261
+                        ],
+                        [
+                            256,
+                            0.5354
+                        ],
+                        [
+                            512,
+                            0.5455
+                        ],
+                        [
+                            1024,
+                            0.5603
+                        ],
+                        [
+                            2048,
+                            0.5818
+                        ],
+                        [
+                            4096,
+                            0.6088
+                        ],
+                        [
+                            8192,
+                            0.6385
+                        ],
+                        [
+                            16384,
+                            0.6679
+                        ],
+                        [
+                            32768,
+                            0.6937
+                        ],
+                        [
+                            65536,
+                            0.7157
+                        ],
+                        [
+                            131072,
+                            0.7398
+                        ],
+                        [
+                            262144,
+                            0.7791
+                        ],
+                        [
+                            524288,
+                            0.815
+                        ],
+                        [
+                            1048576,
+                            0.8763
+                        ],
+                        [
+                            2097152,
+                            0.9317
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            4475532
+                        ],
+                        [
+                            16,
+                            70572231
+                        ],
+                        [
+                            32,
+                            12466523
+                        ],
+                        [
+                            64,
+                            893840
+                        ],
+                        [
+                            128,
+                            22516
+                        ],
+                        [
+                            256,
+                            13461
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 135849168,
+                "writes": 69120795
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 4,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 96270397,
+                "load_instructions": 32210510,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2689,
+                "load_int_64bits_instructions": 17709693,
+                "load_misc_instructions": 14498128,
+                "store_instructions": 856816,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 853919,
+                "store_misc_instructions": 2698,
+                "address_arith_instructions": 16097199,
+                "total_integer_arith_instructions": 8344457,
+                "int_add_instructions": 8341654,
+                "int_sub_instructions": 2799,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 35629266,
+                "misc_instructions": 3132149
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262154,
+                    "arithmetic_mean": 367.2284,
+                    "arithmetic_mean_ctrl": 135.9096,
+                    "arithmetic_mean_int": 31.8303,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 187.5406
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139727
+                        ],
+                        [
+                            1,
+                            1037971
+                        ],
+                        [
+                            2,
+                            556245
+                        ],
+                        [
+                            4,
+                            13394607
+                        ],
+                        [
+                            8,
+                            569735
+                        ],
+                        [
+                            16,
+                            869722
+                        ],
+                        [
+                            32,
+                            353223
+                        ],
+                        [
+                            64,
+                            260788
+                        ],
+                        [
+                            128,
+                            203423
+                        ],
+                        [
+                            256,
+                            303071
+                        ],
+                        [
+                            512,
+                            329865
+                        ],
+                        [
+                            1024,
+                            487225
+                        ],
+                        [
+                            2048,
+                            721996
+                        ],
+                        [
+                            4096,
+                            910035
+                        ],
+                        [
+                            8192,
+                            1016643
+                        ],
+                        [
+                            16384,
+                            988296
+                        ],
+                        [
+                            32768,
+                            863412
+                        ],
+                        [
+                            65536,
+                            711782
+                        ],
+                        [
+                            131072,
+                            756342
+                        ],
+                        [
+                            262144,
+                            1243565
+                        ],
+                        [
+                            524288,
+                            1195727
+                        ],
+                        [
+                            1048576,
+                            1983051
+                        ],
+                        [
+                            2097152,
+                            2040195
+                        ],
+                        [
+                            4194304,
+                            696
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0042
+                        ],
+                        [
+                            1,
+                            0.0356
+                        ],
+                        [
+                            2,
+                            0.0524
+                        ],
+                        [
+                            4,
+                            0.4575
+                        ],
+                        [
+                            8,
+                            0.4747
+                        ],
+                        [
+                            16,
+                            0.501
+                        ],
+                        [
+                            32,
+                            0.5117
+                        ],
+                        [
+                            64,
+                            0.5196
+                        ],
+                        [
+                            128,
+                            0.5257
+                        ],
+                        [
+                            256,
+                            0.5349
+                        ],
+                        [
+                            512,
+                            0.5448
+                        ],
+                        [
+                            1024,
+                            0.5596
+                        ],
+                        [
+                            2048,
+                            0.5814
+                        ],
+                        [
+                            4096,
+                            0.6089
+                        ],
+                        [
+                            8192,
+                            0.6397
+                        ],
+                        [
+                            16384,
+                            0.6696
+                        ],
+                        [
+                            32768,
+                            0.6957
+                        ],
+                        [
+                            65536,
+                            0.7172
+                        ],
+                        [
+                            131072,
+                            0.7401
+                        ],
+                        [
+                            262144,
+                            0.7777
+                        ],
+                        [
+                            524288,
+                            0.8138
+                        ],
+                        [
+                            1048576,
+                            0.8738
+                        ],
+                        [
+                            2097152,
+                            0.9355
+                        ],
+                        [
+                            4194304,
+                            0.9355
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            4942289
+                        ],
+                        [
+                            16,
+                            77784312
+                        ],
+                        [
+                            32,
+                            12602120
+                        ],
+                        [
+                            64,
+                            905657
+                        ],
+                        [
+                            128,
+                            21813
+                        ],
+                        [
+                            256,
+                            13451
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 147833779,
+                "writes": 75270245
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 5,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 97351343,
+                "load_instructions": 32346158,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2687,
+                "load_int_64bits_instructions": 17997750,
+                "load_misc_instructions": 14345721,
+                "store_instructions": 868901,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 866006,
+                "store_misc_instructions": 2696,
+                "address_arith_instructions": 15974587,
+                "total_integer_arith_instructions": 8294883,
+                "int_add_instructions": 8292011,
+                "int_sub_instructions": 2868,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 36223346,
+                "misc_instructions": 3643468
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262153,
+                    "arithmetic_mean": 371.3531,
+                    "arithmetic_mean_ctrl": 138.1763,
+                    "arithmetic_mean_int": 31.6413,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 187.6371
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139735
+                        ],
+                        [
+                            1,
+                            1240077
+                        ],
+                        [
+                            2,
+                            569064
+                        ],
+                        [
+                            4,
+                            13255615
+                        ],
+                        [
+                            8,
+                            581640
+                        ],
+                        [
+                            16,
+                            856578
+                        ],
+                        [
+                            32,
+                            377876
+                        ],
+                        [
+                            64,
+                            281590
+                        ],
+                        [
+                            128,
+                            217846
+                        ],
+                        [
+                            256,
+                            314773
+                        ],
+                        [
+                            512,
+                            348796
+                        ],
+                        [
+                            1024,
+                            511904
+                        ],
+                        [
+                            2048,
+                            744083
+                        ],
+                        [
+                            4096,
+                            908608
+                        ],
+                        [
+                            8192,
+                            1016220
+                        ],
+                        [
+                            16384,
+                            1006648
+                        ],
+                        [
+                            32768,
+                            857162
+                        ],
+                        [
+                            65536,
+                            704457
+                        ],
+                        [
+                            131072,
+                            784754
+                        ],
+                        [
+                            262144,
+                            1248509
+                        ],
+                        [
+                            524288,
+                            1168902
+                        ],
+                        [
+                            1048576,
+                            2022067
+                        ],
+                        [
+                            2097152,
+                            1961576
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0042
+                        ],
+                        [
+                            1,
+                            0.0415
+                        ],
+                        [
+                            2,
+                            0.0586
+                        ],
+                        [
+                            4,
+                            0.4577
+                        ],
+                        [
+                            8,
+                            0.4752
+                        ],
+                        [
+                            16,
+                            0.501
+                        ],
+                        [
+                            32,
+                            0.5124
+                        ],
+                        [
+                            64,
+                            0.5209
+                        ],
+                        [
+                            128,
+                            0.5274
+                        ],
+                        [
+                            256,
+                            0.5369
+                        ],
+                        [
+                            512,
+                            0.5474
+                        ],
+                        [
+                            1024,
+                            0.5628
+                        ],
+                        [
+                            2048,
+                            0.5852
+                        ],
+                        [
+                            4096,
+                            0.6126
+                        ],
+                        [
+                            8192,
+                            0.6432
+                        ],
+                        [
+                            16384,
+                            0.6735
+                        ],
+                        [
+                            32768,
+                            0.6993
+                        ],
+                        [
+                            65536,
+                            0.7205
+                        ],
+                        [
+                            131072,
+                            0.7441
+                        ],
+                        [
+                            262144,
+                            0.7817
+                        ],
+                        [
+                            524288,
+                            0.8169
+                        ],
+                        [
+                            1048576,
+                            0.8778
+                        ],
+                        [
+                            2097152,
+                            0.9368
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            5658719
+                        ],
+                        [
+                            16,
+                            78194079
+                        ],
+                        [
+                            32,
+                            12548353
+                        ],
+                        [
+                            64,
+                            914579
+                        ],
+                        [
+                            128,
+                            21430
+                        ],
+                        [
+                            256,
+                            13431
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 149304186,
+                "writes": 75826561
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 6,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 95523826,
+                "load_instructions": 31928130,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2692,
+                "load_int_64bits_instructions": 17566671,
+                "load_misc_instructions": 14358767,
+                "store_instructions": 860267,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 857367,
+                "store_misc_instructions": 2701,
+                "address_arith_instructions": 15963936,
+                "total_integer_arith_instructions": 8277699,
+                "int_add_instructions": 8274874,
+                "int_sub_instructions": 2821,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 35363907,
+                "misc_instructions": 3129887
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262154,
+                    "arithmetic_mean": 364.3805,
+                    "arithmetic_mean_ctrl": 134.8974,
+                    "arithmetic_mean_int": 31.5757,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 185.9682
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139727
+                        ],
+                        [
+                            1,
+                            1038664
+                        ],
+                        [
+                            2,
+                            556669
+                        ],
+                        [
+                            4,
+                            13250896
+                        ],
+                        [
+                            8,
+                            568962
+                        ],
+                        [
+                            16,
+                            851599
+                        ],
+                        [
+                            32,
+                            354603
+                        ],
+                        [
+                            64,
+                            268466
+                        ],
+                        [
+                            128,
+                            211898
+                        ],
+                        [
+                            256,
+                            309608
+                        ],
+                        [
+                            512,
+                            332350
+                        ],
+                        [
+                            1024,
+                            491561
+                        ],
+                        [
+                            2048,
+                            707540
+                        ],
+                        [
+                            4096,
+                            884175
+                        ],
+                        [
+                            8192,
+                            989993
+                        ],
+                        [
+                            16384,
+                            992983
+                        ],
+                        [
+                            32768,
+                            857985
+                        ],
+                        [
+                            65536,
+                            702053
+                        ],
+                        [
+                            131072,
+                            747827
+                        ],
+                        [
+                            262144,
+                            1251365
+                        ],
+                        [
+                            524288,
+                            1162841
+                        ],
+                        [
+                            1048576,
+                            1928932
+                        ],
+                        [
+                            2097152,
+                            2056244
+                        ],
+                        [
+                            4194304,
+                            526
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0042
+                        ],
+                        [
+                            1,
+                            0.0359
+                        ],
+                        [
+                            2,
+                            0.0529
+                        ],
+                        [
+                            4,
+                            0.457
+                        ],
+                        [
+                            8,
+                            0.4744
+                        ],
+                        [
+                            16,
+                            0.5003
+                        ],
+                        [
+                            32,
+                            0.5111
+                        ],
+                        [
+                            64,
+                            0.5193
+                        ],
+                        [
+                            128,
+                            0.5258
+                        ],
+                        [
+                            256,
+                            0.5352
+                        ],
+                        [
+                            512,
+                            0.5454
+                        ],
+                        [
+                            1024,
+                            0.5604
+                        ],
+                        [
+                            2048,
+                            0.5819
+                        ],
+                        [
+                            4096,
+                            0.6089
+                        ],
+                        [
+                            8192,
+                            0.6391
+                        ],
+                        [
+                            16384,
+                            0.6694
+                        ],
+                        [
+                            32768,
+                            0.6956
+                        ],
+                        [
+                            65536,
+                            0.717
+                        ],
+                        [
+                            131072,
+                            0.7398
+                        ],
+                        [
+                            262144,
+                            0.7779
+                        ],
+                        [
+                            524288,
+                            0.8134
+                        ],
+                        [
+                            1048576,
+                            0.8722
+                        ],
+                        [
+                            2097152,
+                            0.9349
+                        ],
+                        [
+                            4194304,
+                            0.935
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            4940663
+                        ],
+                        [
+                            16,
+                            76960567
+                        ],
+                        [
+                            32,
+                            12673646
+                        ],
+                        [
+                            64,
+                            913503
+                        ],
+                        [
+                            128,
+                            21231
+                        ],
+                        [
+                            256,
+                            13461
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 146688761,
+                "writes": 74648512
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 7,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 99970528,
+                "load_instructions": 33335064,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2689,
+                "load_int_64bits_instructions": 18447747,
+                "load_misc_instructions": 14884628,
+                "store_instructions": 871209,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 868312,
+                "store_misc_instructions": 2698,
+                "address_arith_instructions": 16517298,
+                "total_integer_arith_instructions": 8564073,
+                "int_add_instructions": 8561241,
+                "int_sub_instructions": 2828,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 37143380,
+                "misc_instructions": 3539504
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262153,
+                    "arithmetic_mean": 381.3442,
+                    "arithmetic_mean_ctrl": 141.6858,
+                    "arithmetic_mean_int": 32.6682,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 193.4884
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139719
+                        ],
+                        [
+                            1,
+                            1200356
+                        ],
+                        [
+                            2,
+                            568365
+                        ],
+                        [
+                            4,
+                            13792385
+                        ],
+                        [
+                            8,
+                            579580
+                        ],
+                        [
+                            16,
+                            861456
+                        ],
+                        [
+                            32,
+                            364465
+                        ],
+                        [
+                            64,
+                            279472
+                        ],
+                        [
+                            128,
+                            218905
+                        ],
+                        [
+                            256,
+                            315575
+                        ],
+                        [
+                            512,
+                            348535
+                        ],
+                        [
+                            1024,
+                            508912
+                        ],
+                        [
+                            2048,
+                            753660
+                        ],
+                        [
+                            4096,
+                            952608
+                        ],
+                        [
+                            8192,
+                            1076289
+                        ],
+                        [
+                            16384,
+                            1037832
+                        ],
+                        [
+                            32768,
+                            888408
+                        ],
+                        [
+                            65536,
+                            721515
+                        ],
+                        [
+                            131072,
+                            736057
+                        ],
+                        [
+                            262144,
+                            1254898
+                        ],
+                        [
+                            524288,
+                            1347803
+                        ],
+                        [
+                            1048576,
+                            2048564
+                        ],
+                        [
+                            2097152,
+                            2076188
+                        ],
+                        [
+                            4194304,
+                            653
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.004
+                        ],
+                        [
+                            1,
+                            0.0391
+                        ],
+                        [
+                            2,
+                            0.0557
+                        ],
+                        [
+                            4,
+                            0.459
+                        ],
+                        [
+                            8,
+                            0.4759
+                        ],
+                        [
+                            16,
+                            0.5011
+                        ],
+                        [
+                            32,
+                            0.5117
+                        ],
+                        [
+                            64,
+                            0.5199
+                        ],
+                        [
+                            128,
+                            0.5263
+                        ],
+                        [
+                            256,
+                            0.5355
+                        ],
+                        [
+                            512,
+                            0.5457
+                        ],
+                        [
+                            1024,
+                            0.5606
+                        ],
+                        [
+                            2048,
+                            0.5826
+                        ],
+                        [
+                            4096,
+                            0.6105
+                        ],
+                        [
+                            8192,
+                            0.6419
+                        ],
+                        [
+                            16384,
+                            0.6723
+                        ],
+                        [
+                            32768,
+                            0.6983
+                        ],
+                        [
+                            65536,
+                            0.7194
+                        ],
+                        [
+                            131072,
+                            0.7409
+                        ],
+                        [
+                            262144,
+                            0.7776
+                        ],
+                        [
+                            524288,
+                            0.817
+                        ],
+                        [
+                            1048576,
+                            0.8768
+                        ],
+                        [
+                            2097152,
+                            0.9375
+                        ],
+                        [
+                            4194304,
+                            0.9376
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            5506542
+                        ],
+                        [
+                            16,
+                            80871648
+                        ],
+                        [
+                            32,
+                            12637778
+                        ],
+                        [
+                            64,
+                            919512
+                        ],
+                        [
+                            128,
+                            20865
+                        ],
+                        [
+                            256,
+                            13431
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 153402746,
+                "writes": 78019959
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 8,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 101270963,
+                "load_instructions": 33997133,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2693,
+                "load_int_64bits_instructions": 18618659,
+                "load_misc_instructions": 15375781,
+                "store_instructions": 863061,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 860160,
+                "store_misc_instructions": 2702,
+                "address_arith_instructions": 16989841,
+                "total_integer_arith_instructions": 8791616,
+                "int_add_instructions": 8788788,
+                "int_sub_instructions": 2824,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 37466667,
+                "misc_instructions": 3162645
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262156,
+                    "arithmetic_mean": 386.3003,
+                    "arithmetic_mean_ctrl": 142.9174,
+                    "arithmetic_mean_int": 33.5358,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 197.7831
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139729
+                        ],
+                        [
+                            1,
+                            1049359
+                        ],
+                        [
+                            2,
+                            563959
+                        ],
+                        [
+                            4,
+                            14272711
+                        ],
+                        [
+                            8,
+                            568932
+                        ],
+                        [
+                            16,
+                            848521
+                        ],
+                        [
+                            32,
+                            359979
+                        ],
+                        [
+                            64,
+                            270669
+                        ],
+                        [
+                            128,
+                            211077
+                        ],
+                        [
+                            256,
+                            303359
+                        ],
+                        [
+                            512,
+                            335145
+                        ],
+                        [
+                            1024,
+                            499961
+                        ],
+                        [
+                            2048,
+                            758948
+                        ],
+                        [
+                            4096,
+                            976389
+                        ],
+                        [
+                            8192,
+                            1074358
+                        ],
+                        [
+                            16384,
+                            1069879
+                        ],
+                        [
+                            32768,
+                            930913
+                        ],
+                        [
+                            65536,
+                            755503
+                        ],
+                        [
+                            131072,
+                            791852
+                        ],
+                        [
+                            262144,
+                            1216774
+                        ],
+                        [
+                            524288,
+                            1302731
+                        ],
+                        [
+                            1048576,
+                            2047478
+                        ],
+                        [
+                            2097152,
+                            2353287
+                        ],
+                        [
+                            4194304,
+                            1663
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.004
+                        ],
+                        [
+                            1,
+                            0.0341
+                        ],
+                        [
+                            2,
+                            0.0502
+                        ],
+                        [
+                            4,
+                            0.4597
+                        ],
+                        [
+                            8,
+                            0.476
+                        ],
+                        [
+                            16,
+                            0.5003
+                        ],
+                        [
+                            32,
+                            0.5107
+                        ],
+                        [
+                            64,
+                            0.5184
+                        ],
+                        [
+                            128,
+                            0.5245
+                        ],
+                        [
+                            256,
+                            0.5332
+                        ],
+                        [
+                            512,
+                            0.5428
+                        ],
+                        [
+                            1024,
+                            0.5571
+                        ],
+                        [
+                            2048,
+                            0.5789
+                        ],
+                        [
+                            4096,
+                            0.6069
+                        ],
+                        [
+                            8192,
+                            0.6377
+                        ],
+                        [
+                            16384,
+                            0.6684
+                        ],
+                        [
+                            32768,
+                            0.6951
+                        ],
+                        [
+                            65536,
+                            0.7168
+                        ],
+                        [
+                            131072,
+                            0.7395
+                        ],
+                        [
+                            262144,
+                            0.7744
+                        ],
+                        [
+                            524288,
+                            0.8118
+                        ],
+                        [
+                            1048576,
+                            0.8705
+                        ],
+                        [
+                            2097152,
+                            0.938
+                        ],
+                        [
+                            4194304,
+                            0.9381
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            2,
+                            6
+                        ],
+                        [
+                            8,
+                            4987057
+                        ],
+                        [
+                            16,
+                            82658743
+                        ],
+                        [
+                            32,
+                            12668783
+                        ],
+                        [
+                            64,
+                            921309
+                        ],
+                        [
+                            128,
+                            20849
+                        ],
+                        [
+                            256,
+                            13461
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 155560176,
+                "writes": 79325553
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 9,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 105380055,
+                "load_instructions": 35169782,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2679,
+                "load_int_64bits_instructions": 19449171,
+                "load_misc_instructions": 15717932,
+                "store_instructions": 887333,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 884446,
+                "store_misc_instructions": 2688,
+                "address_arith_instructions": 17386686,
+                "total_integer_arith_instructions": 9002981,
+                "int_add_instructions": 9000102,
+                "int_sub_instructions": 2875,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 39203130,
+                "misc_instructions": 3730143
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262153,
+                    "arithmetic_mean": 401.9792,
+                    "arithmetic_mean_ctrl": 149.5429,
+                    "arithmetic_mean_int": 34.3424,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 203.8649
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139725
+                        ],
+                        [
+                            1,
+                            1272490
+                        ],
+                        [
+                            2,
+                            574140
+                        ],
+                        [
+                            4,
+                            14634459
+                        ],
+                        [
+                            8,
+                            582982
+                        ],
+                        [
+                            16,
+                            873120
+                        ],
+                        [
+                            32,
+                            364870
+                        ],
+                        [
+                            64,
+                            280248
+                        ],
+                        [
+                            128,
+                            222891
+                        ],
+                        [
+                            256,
+                            320648
+                        ],
+                        [
+                            512,
+                            362733
+                        ],
+                        [
+                            1024,
+                            539597
+                        ],
+                        [
+                            2048,
+                            794713
+                        ],
+                        [
+                            4096,
+                            1014693
+                        ],
+                        [
+                            8192,
+                            1144043
+                        ],
+                        [
+                            16384,
+                            1115133
+                        ],
+                        [
+                            32768,
+                            951726
+                        ],
+                        [
+                            65536,
+                            765314
+                        ],
+                        [
+                            131072,
+                            758548
+                        ],
+                        [
+                            262144,
+                            1358418
+                        ],
+                        [
+                            524288,
+                            1390996
+                        ],
+                        [
+                            1048576,
+                            2131294
+                        ],
+                        [
+                            2097152,
+                            2308935
+                        ],
+                        [
+                            4194304,
+                            1452
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0038
+                        ],
+                        [
+                            1,
+                            0.0391
+                        ],
+                        [
+                            2,
+                            0.055
+                        ],
+                        [
+                            4,
+                            0.4609
+                        ],
+                        [
+                            8,
+                            0.4771
+                        ],
+                        [
+                            16,
+                            0.5013
+                        ],
+                        [
+                            32,
+                            0.5114
+                        ],
+                        [
+                            64,
+                            0.5192
+                        ],
+                        [
+                            128,
+                            0.5254
+                        ],
+                        [
+                            256,
+                            0.5343
+                        ],
+                        [
+                            512,
+                            0.5443
+                        ],
+                        [
+                            1024,
+                            0.5593
+                        ],
+                        [
+                            2048,
+                            0.5813
+                        ],
+                        [
+                            4096,
+                            0.6095
+                        ],
+                        [
+                            8192,
+                            0.6412
+                        ],
+                        [
+                            16384,
+                            0.6721
+                        ],
+                        [
+                            32768,
+                            0.6985
+                        ],
+                        [
+                            65536,
+                            0.7197
+                        ],
+                        [
+                            131072,
+                            0.7408
+                        ],
+                        [
+                            262144,
+                            0.7785
+                        ],
+                        [
+                            524288,
+                            0.817
+                        ],
+                        [
+                            1048576,
+                            0.8761
+                        ],
+                        [
+                            2097152,
+                            0.9402
+                        ],
+                        [
+                            4194304,
+                            0.9402
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            5779997
+                        ],
+                        [
+                            16,
+                            85804467
+                        ],
+                        [
+                            32,
+                            12840500
+                        ],
+                        [
+                            64,
+                            920754
+                        ],
+                        [
+                            128,
+                            20179
+                        ],
+                        [
+                            256,
+                            13406
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 161711333,
+                "writes": 82286474
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 10,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 111397566,
+                "load_instructions": 37489213,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2696,
+                "load_int_64bits_instructions": 20523159,
+                "load_misc_instructions": 16963358,
+                "store_instructions": 876123,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 873218,
+                "store_misc_instructions": 2706,
+                "address_arith_instructions": 18612289,
+                "total_integer_arith_instructions": 9611573,
+                "int_add_instructions": 9608753,
+                "int_sub_instructions": 2816,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 41291065,
+                "misc_instructions": 3517303
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262153,
+                    "arithmetic_mean": 424.9334,
+                    "arithmetic_mean_ctrl": 157.5075,
+                    "arithmetic_mean_int": 36.6639,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 217.3449
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139731
+                        ],
+                        [
+                            1,
+                            1181621
+                        ],
+                        [
+                            2,
+                            576956
+                        ],
+                        [
+                            4,
+                            15880706
+                        ],
+                        [
+                            8,
+                            580326
+                        ],
+                        [
+                            16,
+                            865479
+                        ],
+                        [
+                            32,
+                            362288
+                        ],
+                        [
+                            64,
+                            280244
+                        ],
+                        [
+                            128,
+                            223729
+                        ],
+                        [
+                            256,
+                            329162
+                        ],
+                        [
+                            512,
+                            369570
+                        ],
+                        [
+                            1024,
+                            556561
+                        ],
+                        [
+                            2048,
+                            843036
+                        ],
+                        [
+                            4096,
+                            1083298
+                        ],
+                        [
+                            8192,
+                            1217499
+                        ],
+                        [
+                            16384,
+                            1202243
+                        ],
+                        [
+                            32768,
+                            1036530
+                        ],
+                        [
+                            65536,
+                            824466
+                        ],
+                        [
+                            131072,
+                            811495
+                        ],
+                        [
+                            262144,
+                            1357129
+                        ],
+                        [
+                            524288,
+                            1431842
+                        ],
+                        [
+                            1048576,
+                            2291486
+                        ],
+                        [
+                            2097152,
+                            2761275
+                        ],
+                        [
+                            4194304,
+                            1684
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0036
+                        ],
+                        [
+                            1,
+                            0.0344
+                        ],
+                        [
+                            2,
+                            0.0494
+                        ],
+                        [
+                            4,
+                            0.4634
+                        ],
+                        [
+                            8,
+                            0.4785
+                        ],
+                        [
+                            16,
+                            0.501
+                        ],
+                        [
+                            32,
+                            0.5105
+                        ],
+                        [
+                            64,
+                            0.5178
+                        ],
+                        [
+                            128,
+                            0.5236
+                        ],
+                        [
+                            256,
+                            0.5322
+                        ],
+                        [
+                            512,
+                            0.5418
+                        ],
+                        [
+                            1024,
+                            0.5563
+                        ],
+                        [
+                            2048,
+                            0.5783
+                        ],
+                        [
+                            4096,
+                            0.6066
+                        ],
+                        [
+                            8192,
+                            0.6383
+                        ],
+                        [
+                            16384,
+                            0.6696
+                        ],
+                        [
+                            32768,
+                            0.6966
+                        ],
+                        [
+                            65536,
+                            0.7181
+                        ],
+                        [
+                            131072,
+                            0.7393
+                        ],
+                        [
+                            262144,
+                            0.7747
+                        ],
+                        [
+                            524288,
+                            0.812
+                        ],
+                        [
+                            1048576,
+                            0.8717
+                        ],
+                        [
+                            2097152,
+                            0.9437
+                        ],
+                        [
+                            4194304,
+                            0.9437
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            5478598
+                        ],
+                        [
+                            16,
+                            92297674
+                        ],
+                        [
+                            32,
+                            12649826
+                        ],
+                        [
+                            64,
+                            937447
+                        ],
+                        [
+                            128,
+                            19790
+                        ],
+                        [
+                            256,
+                            13471
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 171078181,
+                "writes": 87371796
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 11,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 105367362,
+                "load_instructions": 35610956,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2696,
+                "load_int_64bits_instructions": 19314589,
+                "load_misc_instructions": 16293671,
+                "store_instructions": 853579,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 850675,
+                "store_misc_instructions": 2705,
+                "address_arith_instructions": 17878097,
+                "total_integer_arith_instructions": 9229145,
+                "int_add_instructions": 9226298,
+                "int_sub_instructions": 2843,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 38867442,
+                "misc_instructions": 2928143
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262155,
+                    "arithmetic_mean": 401.9277,
+                    "arithmetic_mean_ctrl": 148.2613,
+                    "arithmetic_mean_int": 35.2049,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 207.2919
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139731
+                        ],
+                        [
+                            1,
+                            965251
+                        ],
+                        [
+                            2,
+                            546380
+                        ],
+                        [
+                            4,
+                            15174662
+                        ],
+                        [
+                            8,
+                            557890
+                        ],
+                        [
+                            16,
+                            844872
+                        ],
+                        [
+                            32,
+                            341297
+                        ],
+                        [
+                            64,
+                            249410
+                        ],
+                        [
+                            128,
+                            192159
+                        ],
+                        [
+                            256,
+                            288037
+                        ],
+                        [
+                            512,
+                            331064
+                        ],
+                        [
+                            1024,
+                            513262
+                        ],
+                        [
+                            2048,
+                            817433
+                        ],
+                        [
+                            4096,
+                            1049818
+                        ],
+                        [
+                            8192,
+                            1143673
+                        ],
+                        [
+                            16384,
+                            1135915
+                        ],
+                        [
+                            32768,
+                            985788
+                        ],
+                        [
+                            65536,
+                            796183
+                        ],
+                        [
+                            131072,
+                            750462
+                        ],
+                        [
+                            262144,
+                            1283007
+                        ],
+                        [
+                            524288,
+                            1377114
+                        ],
+                        [
+                            1048576,
+                            2249905
+                        ],
+                        [
+                            2097152,
+                            2583878
+                        ],
+                        [
+                            4194304,
+                            1038
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0038
+                        ],
+                        [
+                            1,
+                            0.0303
+                        ],
+                        [
+                            2,
+                            0.0452
+                        ],
+                        [
+                            4,
+                            0.4614
+                        ],
+                        [
+                            8,
+                            0.4767
+                        ],
+                        [
+                            16,
+                            0.4999
+                        ],
+                        [
+                            32,
+                            0.5092
+                        ],
+                        [
+                            64,
+                            0.5161
+                        ],
+                        [
+                            128,
+                            0.5213
+                        ],
+                        [
+                            256,
+                            0.5292
+                        ],
+                        [
+                            512,
+                            0.5383
+                        ],
+                        [
+                            1024,
+                            0.5524
+                        ],
+                        [
+                            2048,
+                            0.5748
+                        ],
+                        [
+                            4096,
+                            0.6036
+                        ],
+                        [
+                            8192,
+                            0.6349
+                        ],
+                        [
+                            16384,
+                            0.6661
+                        ],
+                        [
+                            32768,
+                            0.6931
+                        ],
+                        [
+                            65536,
+                            0.715
+                        ],
+                        [
+                            131072,
+                            0.7355
+                        ],
+                        [
+                            262144,
+                            0.7707
+                        ],
+                        [
+                            524288,
+                            0.8085
+                        ],
+                        [
+                            1048576,
+                            0.8702
+                        ],
+                        [
+                            2097152,
+                            0.9411
+                        ],
+                        [
+                            4194304,
+                            0.9411
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            2,
+                            3
+                        ],
+                        [
+                            8,
+                            4655675
+                        ],
+                        [
+                            16,
+                            87038228
+                        ],
+                        [
+                            32,
+                            12732880
+                        ],
+                        [
+                            64,
+                            906743
+                        ],
+                        [
+                            128,
+                            19602
+                        ],
+                        [
+                            256,
+                            13476
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 161979342,
+                "writes": 82833017
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 12,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 111311170,
+                "load_instructions": 37497913,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2698,
+                "load_int_64bits_instructions": 20474893,
+                "load_misc_instructions": 17020322,
+                "store_instructions": 877331,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 874424,
+                "store_misc_instructions": 2708,
+                "address_arith_instructions": 18666433,
+                "total_integer_arith_instructions": 9635434,
+                "int_add_instructions": 9632592,
+                "int_sub_instructions": 2838,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 41227599,
+                "misc_instructions": 3406460
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262155,
+                    "arithmetic_mean": 424.6005,
+                    "arithmetic_mean_ctrl": 157.2642,
+                    "arithmetic_mean_int": 36.7547,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 217.5875
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139726
+                        ],
+                        [
+                            1,
+                            1143029
+                        ],
+                        [
+                            2,
+                            569186
+                        ],
+                        [
+                            4,
+                            15927615
+                        ],
+                        [
+                            8,
+                            574328
+                        ],
+                        [
+                            16,
+                            860289
+                        ],
+                        [
+                            32,
+                            360215
+                        ],
+                        [
+                            64,
+                            271503
+                        ],
+                        [
+                            128,
+                            212558
+                        ],
+                        [
+                            256,
+                            317780
+                        ],
+                        [
+                            512,
+                            360993
+                        ],
+                        [
+                            1024,
+                            547706
+                        ],
+                        [
+                            2048,
+                            856428
+                        ],
+                        [
+                            4096,
+                            1097695
+                        ],
+                        [
+                            8192,
+                            1222639
+                        ],
+                        [
+                            16384,
+                            1207416
+                        ],
+                        [
+                            32768,
+                            1036597
+                        ],
+                        [
+                            65536,
+                            823526
+                        ],
+                        [
+                            131072,
+                            803915
+                        ],
+                        [
+                            262144,
+                            1406810
+                        ],
+                        [
+                            524288,
+                            1381067
+                        ],
+                        [
+                            1048576,
+                            2329123
+                        ],
+                        [
+                            2097152,
+                            2756802
+                        ],
+                        [
+                            4194304,
+                            2052
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0036
+                        ],
+                        [
+                            1,
+                            0.0334
+                        ],
+                        [
+                            2,
+                            0.0482
+                        ],
+                        [
+                            4,
+                            0.4633
+                        ],
+                        [
+                            8,
+                            0.4782
+                        ],
+                        [
+                            16,
+                            0.5006
+                        ],
+                        [
+                            32,
+                            0.51
+                        ],
+                        [
+                            64,
+                            0.5171
+                        ],
+                        [
+                            128,
+                            0.5226
+                        ],
+                        [
+                            256,
+                            0.5309
+                        ],
+                        [
+                            512,
+                            0.5403
+                        ],
+                        [
+                            1024,
+                            0.5546
+                        ],
+                        [
+                            2048,
+                            0.5769
+                        ],
+                        [
+                            4096,
+                            0.6055
+                        ],
+                        [
+                            8192,
+                            0.6374
+                        ],
+                        [
+                            16384,
+                            0.6688
+                        ],
+                        [
+                            32768,
+                            0.6959
+                        ],
+                        [
+                            65536,
+                            0.7173
+                        ],
+                        [
+                            131072,
+                            0.7383
+                        ],
+                        [
+                            262144,
+                            0.7749
+                        ],
+                        [
+                            524288,
+                            0.8109
+                        ],
+                        [
+                            1048576,
+                            0.8716
+                        ],
+                        [
+                            2097152,
+                            0.9434
+                        ],
+                        [
+                            4194304,
+                            0.9435
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            2,
+                            3
+                        ],
+                        [
+                            8,
+                            5326249
+                        ],
+                        [
+                            16,
+                            92220858
+                        ],
+                        [
+                            32,
+                            12811043
+                        ],
+                        [
+                            64,
+                            919296
+                        ],
+                        [
+                            128,
+                            19471
+                        ],
+                        [
+                            256,
+                            13481
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 170998725,
+                "writes": 87355704
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 13,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 143891381,
+                "load_instructions": 46129738,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2698,
+                "load_int_64bits_instructions": 26665189,
+                "load_misc_instructions": 19461850,
+                "store_instructions": 3006832,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 203,
+                "store_int_64bits_instructions": 3003923,
+                "store_misc_instructions": 2706,
+                "address_arith_instructions": 25351327,
+                "total_integer_arith_instructions": 15105482,
+                "int_add_instructions": 15102662,
+                "int_sub_instructions": 2816,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 49346970,
+                "misc_instructions": 4951032
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 2142375,
+                    "arithmetic_mean": 67.1644,
+                    "arithmetic_mean_ctrl": 23.0337,
+                    "arithmetic_mean_int": 7.0508,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 34.7688
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139754
+                        ],
+                        [
+                            1,
+                            918627
+                        ],
+                        [
+                            2,
+                            4828348
+                        ],
+                        [
+                            4,
+                            18337380
+                        ],
+                        [
+                            8,
+                            556744
+                        ],
+                        [
+                            16,
+                            843599
+                        ],
+                        [
+                            32,
+                            328723
+                        ],
+                        [
+                            64,
+                            244836
+                        ],
+                        [
+                            128,
+                            189307
+                        ],
+                        [
+                            256,
+                            291357
+                        ],
+                        [
+                            512,
+                            351604
+                        ],
+                        [
+                            1024,
+                            556904
+                        ],
+                        [
+                            2048,
+                            929635
+                        ],
+                        [
+                            4096,
+                            1232239
+                        ],
+                        [
+                            8192,
+                            1406252
+                        ],
+                        [
+                            16384,
+                            1413767
+                        ],
+                        [
+                            32768,
+                            1221062
+                        ],
+                        [
+                            65536,
+                            968345
+                        ],
+                        [
+                            131072,
+                            824929
+                        ],
+                        [
+                            262144,
+                            1379678
+                        ],
+                        [
+                            524288,
+                            1742025
+                        ],
+                        [
+                            1048576,
+                            2871552
+                        ],
+                        [
+                            2097152,
+                            4282263
+                        ],
+                        [
+                            4194304,
+                            803124
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0028
+                        ],
+                        [
+                            1,
+                            0.0215
+                        ],
+                        [
+                            2,
+                            0.1198
+                        ],
+                        [
+                            4,
+                            0.4929
+                        ],
+                        [
+                            8,
+                            0.5043
+                        ],
+                        [
+                            16,
+                            0.5214
+                        ],
+                        [
+                            32,
+                            0.5281
+                        ],
+                        [
+                            64,
+                            0.5331
+                        ],
+                        [
+                            128,
+                            0.537
+                        ],
+                        [
+                            256,
+                            0.5429
+                        ],
+                        [
+                            512,
+                            0.5501
+                        ],
+                        [
+                            1024,
+                            0.5614
+                        ],
+                        [
+                            2048,
+                            0.5803
+                        ],
+                        [
+                            4096,
+                            0.6054
+                        ],
+                        [
+                            8192,
+                            0.634
+                        ],
+                        [
+                            16384,
+                            0.6628
+                        ],
+                        [
+                            32768,
+                            0.6876
+                        ],
+                        [
+                            65536,
+                            0.7073
+                        ],
+                        [
+                            131072,
+                            0.7241
+                        ],
+                        [
+                            262144,
+                            0.7522
+                        ],
+                        [
+                            524288,
+                            0.7877
+                        ],
+                        [
+                            1048576,
+                            0.8461
+                        ],
+                        [
+                            2097152,
+                            0.9332
+                        ],
+                        [
+                            4194304,
+                            0.9496
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            4494271
+                        ],
+                        [
+                            16,
+                            125441119
+                        ],
+                        [
+                            32,
+                            13011115
+                        ],
+                        [
+                            64,
+                            911024
+                        ],
+                        [
+                            128,
+                            19545
+                        ],
+                        [
+                            256,
+                            13461
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 218475909,
+                "writes": 111852056
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 14,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 126177440,
+                "load_instructions": 42317353,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2696,
+                "load_int_64bits_instructions": 23301445,
+                "load_misc_instructions": 19013212,
+                "store_instructions": 929836,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 926932,
+                "store_misc_instructions": 2705,
+                "address_arith_instructions": 20777483,
+                "total_integer_arith_instructions": 10713782,
+                "int_add_instructions": 10710907,
+                "int_sub_instructions": 2871,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 47065896,
+                "misc_instructions": 4373090
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262156,
+                    "arithmetic_mean": 481.3067,
+                    "arithmetic_mean_ctrl": 179.5339,
+                    "arithmetic_mean_int": 40.8679,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 244.2235
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139713
+                        ],
+                        [
+                            1,
+                            1518419
+                        ],
+                        [
+                            2,
+                            600773
+                        ],
+                        [
+                            4,
+                            17948450
+                        ],
+                        [
+                            8,
+                            597193
+                        ],
+                        [
+                            16,
+                            879983
+                        ],
+                        [
+                            32,
+                            387097
+                        ],
+                        [
+                            64,
+                            302521
+                        ],
+                        [
+                            128,
+                            245276
+                        ],
+                        [
+                            256,
+                            349481
+                        ],
+                        [
+                            512,
+                            394710
+                        ],
+                        [
+                            1024,
+                            589346
+                        ],
+                        [
+                            2048,
+                            909035
+                        ],
+                        [
+                            4096,
+                            1232783
+                        ],
+                        [
+                            8192,
+                            1409824
+                        ],
+                        [
+                            16384,
+                            1442589
+                        ],
+                        [
+                            32768,
+                            1279222
+                        ],
+                        [
+                            65536,
+                            949406
+                        ],
+                        [
+                            131072,
+                            870728
+                        ],
+                        [
+                            262144,
+                            1541006
+                        ],
+                        [
+                            524288,
+                            1627615
+                        ],
+                        [
+                            1048576,
+                            2707421
+                        ],
+                        [
+                            2097152,
+                            3142530
+                        ],
+                        [
+                            4194304,
+                            2809
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0032
+                        ],
+                        [
+                            1,
+                            0.0383
+                        ],
+                        [
+                            2,
+                            0.0522
+                        ],
+                        [
+                            4,
+                            0.4672
+                        ],
+                        [
+                            8,
+                            0.481
+                        ],
+                        [
+                            16,
+                            0.5014
+                        ],
+                        [
+                            32,
+                            0.5103
+                        ],
+                        [
+                            64,
+                            0.5173
+                        ],
+                        [
+                            128,
+                            0.523
+                        ],
+                        [
+                            256,
+                            0.5311
+                        ],
+                        [
+                            512,
+                            0.5402
+                        ],
+                        [
+                            1024,
+                            0.5538
+                        ],
+                        [
+                            2048,
+                            0.5748
+                        ],
+                        [
+                            4096,
+                            0.6033
+                        ],
+                        [
+                            8192,
+                            0.6359
+                        ],
+                        [
+                            16384,
+                            0.6693
+                        ],
+                        [
+                            32768,
+                            0.6989
+                        ],
+                        [
+                            65536,
+                            0.7208
+                        ],
+                        [
+                            131072,
+                            0.741
+                        ],
+                        [
+                            262144,
+                            0.7766
+                        ],
+                        [
+                            524288,
+                            0.8142
+                        ],
+                        [
+                            1048576,
+                            0.8768
+                        ],
+                        [
+                            2097152,
+                            0.9495
+                        ],
+                        [
+                            4194304,
+                            0.9496
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            2,
+                            6
+                        ],
+                        [
+                            8,
+                            6616803
+                        ],
+                        [
+                            16,
+                            105332137
+                        ],
+                        [
+                            32,
+                            13267908
+                        ],
+                        [
+                            64,
+                            926994
+                        ],
+                        [
+                            128,
+                            19366
+                        ],
+                        [
+                            256,
+                            13471
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 193655155,
+                "writes": 98795076
+            },
+            "branchEntropy": [
+
+            ]
+        },
+        {
+            "threadId": 15,
+            "processId": 0,
+            "instructionMix": {
+                "instructions_analyzed": 114757340,
+                "load_instructions": 39137453,
+                "load_float_16bits_instructions": 0,
+                "load_float_32bits_instructions": 0,
+                "load_float_64bits_instructions": 0,
+                "load_float_80bits_instructions": 0,
+                "load_float_128bits_instructions": 0,
+                "load_float_128bits_powerpc_instructions": 0,
+                "load_float_64bits_mmx_instructions": 0,
+                "load_int_4bits_instructions": 0,
+                "load_int_8bits_instructions": 0,
+                "load_int_16bits_instructions": 0,
+                "load_int_32bits_instructions": 2691,
+                "load_int_64bits_instructions": 20939959,
+                "load_misc_instructions": 18194803,
+                "store_instructions": 860279,
+                "store_float_16bits_instructions": 0,
+                "store_float_32bits_instructions": 0,
+                "store_float_64bits_instructions": 0,
+                "store_float_80bits_instructions": 0,
+                "store_float_128bits_instructions": 0,
+                "store_float_128bits_powerpc_instructions": 0,
+                "store_float_64bits_mmx_instructions": 0,
+                "store_int_4bits_instructions": 0,
+                "store_int_8bits_instructions": 0,
+                "store_int_16bits_instructions": 0,
+                "store_int_32bits_instructions": 199,
+                "store_int_64bits_instructions": 857380,
+                "store_misc_instructions": 2700,
+                "address_arith_instructions": 19787135,
+                "total_integer_arith_instructions": 10176548,
+                "int_add_instructions": 10173709,
+                "int_sub_instructions": 2835,
+                "int_mul_instructions": 2,
+                "int_udiv_instructions": 0,
+                "int_sdiv_instructions": 1,
+                "int_urem_instructions": 0,
+                "int_srem_instructions": 1,
+                "total_fp_arith_instructions": 0,
+                "fp_add_instructions": 0,
+                "fp_sub_instructions": 0,
+                "fp_mul_instructions": 0,
+                "fp_div_instructions": 0,
+                "fp_rem_instructions": 0,
+                "control_instructions": 42184103,
+                "misc_instructions": 2611822
+            },
+            "ilp": {
+                "windowSize": "inf",
+                "statistics": {
+                    "span": 262153,
+                    "arithmetic_mean": 437.7494,
+                    "arithmetic_mean_ctrl": 160.914,
+                    "arithmetic_mean_int": 38.8191,
+                    "arithmetic_mean_fp": 0,
+                    "arithmetic_mean_mem": 228.0533
+                }
+            },
+            "dataReuseDistribution": {
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "data": [
+                        [
+                            0,
+                            139735
+                        ],
+                        [
+                            1,
+                            843909
+                        ],
+                        [
+                            2,
+                            535632
+                        ],
+                        [
+                            4,
+                            17061521
+                        ],
+                        [
+                            8,
+                            554154
+                        ],
+                        [
+                            16,
+                            863788
+                        ],
+                        [
+                            32,
+                            330129
+                        ],
+                        [
+                            64,
+                            232311
+                        ],
+                        [
+                            128,
+                            177996
+                        ],
+                        [
+                            256,
+                            259721
+                        ],
+                        [
+                            512,
+                            293915
+                        ],
+                        [
+                            1024,
+                            464848
+                        ],
+                        [
+                            2048,
+                            786626
+                        ],
+                        [
+                            4096,
+                            1117211
+                        ],
+                        [
+                            8192,
+                            1307428
+                        ],
+                        [
+                            16384,
+                            1373347
+                        ],
+                        [
+                            32768,
+                            1186821
+                        ],
+                        [
+                            65536,
+                            924866
+                        ],
+                        [
+                            131072,
+                            867228
+                        ],
+                        [
+                            262144,
+                            1433198
+                        ],
+                        [
+                            524288,
+                            1777516
+                        ],
+                        [
+                            1048576,
+                            2674868
+                        ],
+                        [
+                            2097152,
+                            2652297
+                        ],
+                        [
+                            4194304,
+                            1012
+                        ]
+                    ],
+                    "dataCDF": [
+                        [
+                            0,
+                            0.0034
+                        ],
+                        [
+                            1,
+                            0.0245
+                        ],
+                        [
+                            2,
+                            0.0379
+                        ],
+                        [
+                            4,
+                            0.4645
+                        ],
+                        [
+                            8,
+                            0.4784
+                        ],
+                        [
+                            16,
+                            0.4999
+                        ],
+                        [
+                            32,
+                            0.5082
+                        ],
+                        [
+                            64,
+                            0.514
+                        ],
+                        [
+                            128,
+                            0.5185
+                        ],
+                        [
+                            256,
+                            0.525
+                        ],
+                        [
+                            512,
+                            0.5323
+                        ],
+                        [
+                            1024,
+                            0.5439
+                        ],
+                        [
+                            2048,
+                            0.5636
+                        ],
+                        [
+                            4096,
+                            0.5915
+                        ],
+                        [
+                            8192,
+                            0.6242
+                        ],
+                        [
+                            16384,
+                            0.6585
+                        ],
+                        [
+                            32768,
+                            0.6882
+                        ],
+                        [
+                            65536,
+                            0.7113
+                        ],
+                        [
+                            131072,
+                            0.733
+                        ],
+                        [
+                            262144,
+                            0.7689
+                        ],
+                        [
+                            524288,
+                            0.8133
+                        ],
+                        [
+                            1048576,
+                            0.8802
+                        ],
+                        [
+                            2097152,
+                            0.9465
+                        ],
+                        [
+                            4194304,
+                            0.9465
+                        ]
+                    ]
+                }
+            },
+            "instReuseDistribution": {
+                "instructionSize": "inf",
+                "cacheLineSize": "inf",
+                "statistics": {
+                    "instructions": [
+                        [
+                            8,
+                            4223237
+                        ],
+                        [
+                            16,
+                            96531863
+                        ],
+                        [
+                            32,
+                            13087313
+                        ],
+                        [
+                            64,
+                            881231
+                        ],
+                        [
+                            128,
+                            19488
+                        ],
+                        [
+                            256,
+                            13456
+                        ]
+                    ],
+                    "instructionsCDF": [
+                        [
+                            2,
+                            0
+                        ],
+                        [
+                            8,
+                            0.0011
+                        ],
+                        [
+                            16,
+                            0.0279
+                        ],
+                        [
+                            32,
+                            0.0548
+                        ],
+                        [
+                            64,
+                            0.8669
+                        ],
+                        [
+                            128,
+                            0.9057
+                        ],
+                        [
+                            256,
+                            0.9402
+                        ],
+                        [
+                            512,
+                            0.9999
+                        ],
+                        [
+                            1024,
+                            0.9999
+                        ]
+                    ]
+                }
+            },
+            "registerAccesses": {
+                "reads": 176646480,
+                "writes": 90670388
+            },
+            "branchEntropy": [
+
+            ]
+        }
+    ]
+}
+ 

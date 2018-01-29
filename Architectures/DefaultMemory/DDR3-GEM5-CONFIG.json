@@ -1,0 +1,26 @@
+{
+    "id": "DDR3-GEM5-CONFIG",
+    "name": "Micron_4GB_DDR3-1600_8bit-GEM5",
+    "config": {
+        "MemoryId": "Micron_4GB_DDR3-1600_8bit-GEM",
+        "MemoryType": "DDR4",
+        "MemoryRankSize": 4096,
+        "DevicesPerRank": 8,
+        "DeviceChipSize": 512,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 800,
+        "REFI": 6240,
+        "RFC": 208,
+        "RAS": 28,
+        "RP": 11,
+        "idd0": 75.0,
+        "idd2n": 50.0,
+        "idd3n": 57.0,
+        "idd4r": 187.0,
+        "idd4w": 165.0,
+        "idd5b": 220.0,
+        "vdd": 1.5
+    }
+}

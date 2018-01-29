@@ -1,0 +1,27 @@
+{
+    "id": "DRAMSpec_ddr3_10_1333",
+    "name": "DRAMSpec_ddr3_10_DDR_OFF_1_4096_32_8_1333_512_400_8_0_4_ON_3.9_1_0.5_2",
+    "config": {
+        "MemoryId": "DRAMSpec_ddr3_10_DDR_OFF_1_4096_32_8_1333_512_400_8_0_4_ON_3.9_1_0.5_2",
+        "MemoryType": "dramSpec",
+        "MemoryRankSize": 4096,
+        "DevicesPerRank": 8,
+        "DeviceChipSize": 512,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 1333,
+        "REFI": 2603,
+        "RFC": 287,
+        "RAS": 39,
+        "RP": 20,
+        "idd0": 75.978,
+        "idd2n": 26.745,
+        "idd3n": 34.745,
+        "idd4r": 200.964,
+        "idd4w": 206.592,
+        "idd5b": 310.59,
+        "vdd": 1.1,
+        "area": 19.8442
+    }
+}

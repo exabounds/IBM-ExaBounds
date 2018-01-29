@@ -1,0 +1,27 @@
+{
+    "id": "DRAMSpec_ddr3_4_1200",
+    "name": "DRAMSpec_ddr3_4_DDR_OFF_1_4096_16_16_1200_256_200_8_0_1_ON_3.9_1_0.5_2",
+    "config": {
+        "MemoryId": "DRAMSpec_ddr3_4_DDR_OFF_1_4096_16_16_1200_256_200_8_0_1_ON_3.9_1_0.5_2",
+        "MemoryType": "dramSpec",
+        "MemoryRankSize": 4096,
+        "DevicesPerRank": 16,
+        "DeviceChipSize": 256,
+        "DataWidth": 8,
+        "DataRate": 2,
+        "BurstLength": 8,
+        "ClkMHz": 1200,
+        "REFI": 1172,
+        "RFC": 165,
+        "RAS": 38,
+        "RP": 17,
+        "idd0": 36.5188,
+        "idd2n": 24.75,
+        "idd3n": 26.75,
+        "idd4r": 247.311,
+        "idd4w": 257.442,
+        "idd5b": 80.7446,
+        "vdd": 1.1,
+        "area": 39.3579
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "torus-2D",
+  "name": "Torus 2D",
+  "config": {
+	"topologyDescription": {
+		"d1": 15,
+		"d2": 16,
+		"p": 6
+	},
+	"nodeStackLatency": 0.000001,
+	"nodeSwitchLinkLatency": 0.0000001,
+	"nodeSwitchLinkType": "electrical",
+	"switch1Switch2LinkLatency": 0.0000001,
+	"switch1Switch2LinkType": "electrical",
+	"switchLatency": 0.0000001,
+	"nodeSwitchBandwidth": 5368709120,
+	"switchSwitchBandwidth": 5368709120,
+	"electricalLinkEnergyPerBit": 5,
+	"opticalLinkEnergyPerBit": 5,
+	"switchLogicEnergyPerBit": 25,
+	"switchStaticPower": 100,
+	"mappingDescription": {
+		"type": "linear"
+	}
+  }
+}

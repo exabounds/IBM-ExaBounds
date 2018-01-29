@@ -1,0 +1,289 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10264,        281]
+NotebookOptionsPosition[      8573,        235]
+NotebookOutlinePosition[      8960,        252]
+CellTagsIndexPosition[      8917,        249]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["IBM ExaBounds", "Title",ExpressionUUID->"5fedcafc-5170-451e-bd96-ff77a4fd1d9d"],
+
+Cell["\<\
+(C) Copyright IBM Corporation 2017
+
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+  IBM Algorithms & Machines team
+ 
+ExaBounds-lite notebook: lite version of ExaBounds with basic functionality \
+for design-space exploration\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Load", " ", "ExaBounds", " ", "environment"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "set", " ", "notebook", " ", "directory", " ", "such", " ", "that", " ", 
+     "init", " ", "package", " ", "can", " ", "be", " ", "found"}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<ExaBoundsInit`\>\""}], " ", "\[IndentingNewLine]", 
+   RowBox[{"<<", " ", "\"\<ExaBoundsGUI`\>\""}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"import", " ", "the", " ", "GUI", " ", "package"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Load", " ", "ExaBounds", " ", "models"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<CPUPerformanceModels`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<CPUMultithreadedModels`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<CPUPowerModels`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<CommunicationPerformanceModels`\>\""}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<CommunicationPowerModels`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Load", " ", "visualization", " ", "packages"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<CPUPerformanceVisualization`\>\""}]}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Load", " ", "default", " ", "algorithms"}], ",", " ", 
+    RowBox[{
+    "for", " ", "the", " ", "moment", " ", "we", " ", "need", " ", "to", " ", 
+     "load", " ", "*", "something", "*"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"<<", "\"\<PreDefinedAlgorithms`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExaBoundsAlgInfo", " ", "=", 
+     RowBox[{"Association", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"LoadPreDefinedAlgorithms", "[", "ExaBoundsAlgInfo", "]"}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Display", " ", "import", " ", "dialog", " ", "to", " ", "load", " ", 
+     "algorithms"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+   "ShowAlgorithmsAdminGUI", "[", "ExaBoundsAlgInfo", "]"}]}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Load", " ", "predefined", " ", "network", " ", "and", " ", "machine", " ",
+     "configurations"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"<<", "\"\<PreDefinedNetworkConfigs`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<PreDefinedMachineConfigs`\>\""}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"import", " ", "the", " ", "package", " ", "with", " ", "pre"}], 
+     "-", 
+     RowBox[{"defined", " ", "machines", " ", "configurations"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"ShowArchitectureAdminGUI", "[", "]"}]}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Basic", " ", "GUI", " ", "elements"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", 
+    RowBox[{
+     RowBox[{"pickMachineConfig", "[", " ", 
+      RowBox[{
+      "ExaBoundsState", ",", " ", "predefinedConfigID2Name", ",", " ", 
+       "predefinedConfigID2NameNetwork"}], " ", "]"}], ",", 
+     RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+      RowBox[{"{", 
+       RowBox[{
+       "predefinedConfigID2Name", ",", "predefinedConfigID2NameNetwork"}], 
+       "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"AlgorithmPicker", "[", "ExaBoundsAlgInfo", "]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Performance", " ", "visualizer"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", 
+    RowBox[{
+     RowBox[{"VisualizeCPUCorePerformance", "[", 
+      RowBox[{"ExaBoundsState", ",", 
+       RowBox[{"GetAlgorithmVectorProperties", "[", 
+        RowBox[{"ExaBoundsState", ",", 
+         RowBox[{"GetAlgorithmKeyValueList", "[", 
+          RowBox[{"ExaBoundsAlgInfo", ",", "selectedAlgorithm"}], "]"}]}], 
+        "]"}]}], "]"}], ",", 
+     RowBox[{"SynchronousUpdating", "\[Rule]", "False"}], ",", 
+     RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+      RowBox[{"{", 
+       RowBox[{
+       "ExaBoundsState", ",", "selectedAlgorithm", ",", "selAlgorithm", ",", 
+        "selScaling", ",", "selData", ",", "selThread"}], "}"}]}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"SummaryCPUCorePerformance", "[", 
+      RowBox[{"ExaBoundsState", ",", 
+       RowBox[{"GetAlgorithmVectorProperties", "[", 
+        RowBox[{"ExaBoundsState", ",", 
+         RowBox[{"GetAlgorithmKeyValueList", "[", 
+          RowBox[{"ExaBoundsAlgInfo", ",", "selectedAlgorithm"}], "]"}]}], 
+        "]"}], ",", " ", "summaryPower"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "summaryPower", ",", "False", ",", " ", 
+         "\"\<Enable power model\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+     RowBox[{"SynchronousUpdating", "\[Rule]", "False"}], ",", 
+     RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+      RowBox[{"{", 
+       RowBox[{
+       "ExaBoundsState", ",", "selectedAlgorithm", ",", "selAlgorithm", ",", 
+        "selScaling", ",", "selData", ",", "selThread", ",", "summaryPower"}],
+        "}"}]}]}], "]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Multicore", " ", "model"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Dynamic", "[", 
+   RowBox[{
+    RowBox[{"MulticoreModelInterface", "[", 
+     RowBox[{"ExaBoundsState", ",", "ExaBoundsAlgInfo"}], "]"}], ",", " ", 
+    RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+     RowBox[{"{", 
+      RowBox[{"ExaBoundsState", ",", " ", "ExaBoundsAlgInfo"}], "}"}]}]}], 
+   "]"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "DSE", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"<<", "\"\<DSE`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DSEInit", "[", "dataDSE", "]"}], ";"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.641721766301087*^9, 3.641721772197897*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DSEGUI", "[", 
+  RowBox[{"dataDSE", ",", " ", "ExaBoundsState", ",", " ", 
+   RowBox[{"GetAlgorithmVectorProperties", "[", 
+    RowBox[{"ExaBoundsState", ",", 
+     RowBox[{"GetAlgorithmKeyValueList", "[", 
+      RowBox[{"ExaBoundsAlgInfo", ",", "selectedAlgorithm"}], "]"}]}], 
+    "]"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{
+   RowBox[{"DSEParetoPlot", "[", 
+    RowBox[{"dataDSE", ",", " ", "ExaBoundsState", ",", 
+     RowBox[{"GetAlgorithmVectorProperties", "[", 
+      RowBox[{"ExaBoundsState", ",", 
+       RowBox[{"GetAlgorithmKeyValueList", "[", 
+        RowBox[{"ExaBoundsAlgInfo", ",", "selectedAlgorithm"}], "]"}]}], 
+      "]"}]}], "]"}], ",", " ", 
+   RowBox[{"TrackedSymbols", ":>", 
+    RowBox[{"{", "dataDSE", "}"}]}], ",", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"showClearCacheButtons", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"ConfigurationInterface", "[", "]"}]], "Input"]
+}, Open  ]]
+},
+WindowSize->{1600, 828},
+WindowMargins->{{70, Automatic}, {1055, Automatic}},
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 18, \
+2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 85, 0, 92, "Title", "ExpressionUUID" -> \
+"5fedcafc-5170-451e-bd96-ff77a4fd1d9d"],
+Cell[668, 24, 450, 13, 220, "Text", "ExpressionUUID" -> \
+"db3880d1-03f4-470f-b136-fce1122d8190"],
+Cell[1121, 39, 1486, 32, 280, "Input", "ExpressionUUID" -> \
+"32bb2729-9463-4243-b8dc-6dc425055ea3",
+ InitializationCell->True],
+Cell[2610, 73, 919, 23, 154, "Input", "ExpressionUUID" -> \
+"b812212b-90d4-42ae-a61c-0da36c29b4c6",
+ InitializationCell->True],
+Cell[3532, 98, 679, 16, 112, "Input", "ExpressionUUID" -> \
+"c62ebd44-0f85-4224-9e16-5fcb63579a4b",
+ InitializationCell->True],
+Cell[4214, 116, 668, 17, 75, "Input", "ExpressionUUID" -> \
+"23b5754c-9f8a-434a-aeee-4282cc995fc0"],
+Cell[4885, 135, 1865, 45, 107, "Input", "ExpressionUUID" -> \
+"00fdaa8a-b878-4b65-b0cc-768d8e24a504"],
+Cell[6753, 182, 448, 11, 50, "Input", "ExpressionUUID" -> \
+"25970a71-4d99-4bf4-8ab5-64e15108b75a"],
+Cell[7204, 195, 330, 8, 85, "Input", "ExpressionUUID" -> \
+"c41ce382-fba9-4dc4-8f50-cff8d524ae95",
+ InitializationCell->True],
+Cell[7537, 205, 332, 7, 44, "Input", "ExpressionUUID" -> \
+"bc24bc80-adfa-40bf-9fe1-98344f03522d"],
+Cell[7872, 214, 540, 12, 44, "Input", "ExpressionUUID" -> \
+"b5767b50-1620-4f43-9e22-be0da6889268"],
+Cell[8415, 228, 69, 1, 44, "Input", "ExpressionUUID" -> \
+"772cc110-ad42-45ed-9873-a7e3fa037d8a"],
+Cell[8487, 231, 70, 1, 44, "Input", "ExpressionUUID" -> \
+"570d620f-44c7-41e0-b8ed-ac71b1b21cb4"]
+}, Open  ]]
+}
+]
+*)
+

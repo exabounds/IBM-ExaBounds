@@ -1,0 +1,679 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     25319,        670]
+NotebookOptionsPosition[     24095,        623]
+NotebookOutlinePosition[     24500,        640]
+CellTagsIndexPosition[     24457,        637]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Overall Initialization", "Title"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Clear", " ", "everything", " ", "and", " ", "initialize", " ", "the", 
+     " ", "directories", " ", "where", " ", "to", " ", "find", " ", "the", 
+     " ", "packages"}], " ", "\[Rule]", " ", 
+    RowBox[{"Exabounds", "-", 
+     RowBox[{"Light", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Clear", " ", "everything", " ", "to", " ", "always", " ", "start", " ", 
+     "with", " ", "a", " ", "blank", " ", 
+     RowBox[{"slate", "."}]}], " ", "*)"}], "\[IndentingNewLine]", " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"$Path", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{"$Path", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "}"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"<<", "\"\<ExaBoundsInit`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dataDirectory", " ", "=", " ", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"DirectoryName", "[", 
+         RowBox[{"FindFile", "[", "\"\<ExaBounds.nb\>\"", "]"}], "]"}], ",", 
+        "\"\<misc\>\"", ",", "\"\<PPoPP2016\>\""}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"$Path", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{"$Path", ",", 
+       RowBox[{"{", 
+        RowBox[{"NotebookDirectory", "[", "]"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"$Path", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{"$Path", ",", 
+       RowBox[{"{", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"ParentDirectory", "[", 
+            RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", 
+           "\"\<misc\>\"", ",", " ", "\"\<CF2015\>\""}], "}"}], "]"}], 
+        "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{",", " ", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+         "\"\<AlgorithmExtrapolation\>\""}]}], "}"}], "]"}], ";"}], "  ", 
+    "*)"}]}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"<<", "\"\<AlgorithmsFromFile`\>\""}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "\"\<AlgorithmFromFileJSON`\>\""}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "\"\<AlgorithmsFromFileCF2015`\>\""}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "\"\<ImportDOE`\>\""}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "\"\<PerBinModels`\>\""}]}], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Import", " ", "Characterization", " ", "modeling", " ", "packages"}], " ",
+    "*)"}], "\[IndentingNewLine]", " ", 
+  RowBox[{"<<", "\"\<AlgorithmExtrapolation`\>\""}]}]], "Input",
+ InitializationCell->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Import Data", "Title"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"load", " ", "multithread", " ", "data"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"<<", "\"\<AlgorithmFromFileJSON`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"loadFromJSON", " ", "=", " ", "False"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"SetAttributes", "[", 
+    RowBox[{"MergeAlgorithms", ",", "HoldFirst"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MergeAlgorithms", "[", 
+      RowBox[{
+      "ExaBoundsAlgInfo_", ",", "name1_", ",", "name2_", ",", "nameBoth_"}], 
+      "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "a1", ",", "a2", ",", "aBoth", ",", "keys", ",", "k", ",", "first", 
+         ",", "second", ",", "merged"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"a1", "=", 
+         RowBox[{"ExaBoundsAlgInfo", "[", "name1", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"a2", "=", 
+         RowBox[{"ExaBoundsAlgInfo", "[", "name2", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"aBoth", " ", "=", " ", 
+         RowBox[{"<|", 
+          RowBox[{"\"\<scalingParameters\>\"", "\[Rule]", 
+           RowBox[{"a1", "[", "\"\<scalingParameters\>\"", "]"}]}], "|>"}]}], 
+        ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"keys", " ", "=", " ", 
+         RowBox[{"Intersection", "[", 
+          RowBox[{
+           RowBox[{"GetScalingConfigurations", "[", "a1", "]"}], ",", 
+           RowBox[{"GetScalingConfigurations", "[", "a2", "]"}]}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"Do", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"first", "=", 
+            RowBox[{
+             RowBox[{"a1", "[", "k", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+           RowBox[{"first", " ", "=", " ", 
+            RowBox[{"KeyMap", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"StringReplace", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"\"\<thread\>\"", "\[Rule]", 
+                  RowBox[{"\"\<thread\>\"", "<>", "name1"}]}]}], "]"}], "&"}],
+               ",", "first"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"second", "=", 
+            RowBox[{
+             RowBox[{"a2", "[", "k", "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+           RowBox[{"second", " ", "=", " ", 
+            RowBox[{"KeyMap", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"StringReplace", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"\"\<thread\>\"", "\[Rule]", 
+                  RowBox[{"\"\<thread\>\"", "<>", "name2"}]}]}], "]"}], "&"}],
+               ",", "second"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"merged", " ", "=", " ", 
+            RowBox[{"Join", "[", 
+             RowBox[{"first", ",", "second"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"aBoth", ",", 
+             RowBox[{"k", "\[Rule]", " ", 
+              RowBox[{"{", "merged", "}"}]}]}], "]"}]}], 
+          "\[IndentingNewLine]", ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", "keys"}], "}"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"ExaBoundsAlgInfo", ",", 
+          RowBox[{"nameBoth", "->", "aBoth"}]}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{"loadFromJSON", ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ExaBoundsAlgInfo", "=", 
+        RowBox[{"Association", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"ExaBoundsTestAlgInfo", "=", 
+        RowBox[{"Association", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"Load", " ", "SKA"}], "-", "CSP"}], " ", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+       "basePath1", "=", 
+        "\"\<C:\\\\repositories\\\\skaAlgorithms-JSON\\\\20150830\>\""}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"fileNamesTrain", "=", 
+        RowBox[{"FileNames", "[", 
+         RowBox[{"\"\<*.out\>\"", ",", 
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{
+            "basePath1", ",", "\"\<corr\>\"", ",", "\"\<train-set\>\""}], 
+            "}"}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"fileNamesTest", "=", 
+        RowBox[{"FileNames", "[", 
+         RowBox[{"\"\<*.out\>\"", ",", 
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{
+            "basePath1", ",", "\"\<corr\>\"", ",", "\"\<test-set\>\""}], 
+            "}"}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"algoData", "=", 
+            RowBox[{"LoadAlgorithmJSON", "[", "#", "]"}]}], ";", 
+           RowBox[{"AppendAlgorithmAnalysis", "[", 
+            RowBox[{"ExaBoundsAlgInfo", ",", "algoData"}], "]"}], ";"}], 
+          "&"}], ",", "fileNamesTrain"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"algoData", "=", 
+            RowBox[{"LoadAlgorithmJSON", "[", "#", "]"}]}], ";", 
+           RowBox[{"AppendAlgorithmAnalysis", "[", 
+            RowBox[{"ExaBoundsTestAlgInfo", ",", "algoData"}], "]"}], ";"}], 
+          "&"}], ",", "fileNamesTest"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"fileNamesTrain", "=", 
+        RowBox[{"FileNames", "[", 
+         RowBox[{"\"\<*.out\>\"", ",", 
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{
+            "basePath1", ",", "\"\<ppf\>\"", ",", "\"\<train-set\>\""}], 
+            "}"}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"fileNamesTest", "=", 
+        RowBox[{"FileNames", "[", 
+         RowBox[{"\"\<*.out\>\"", ",", 
+          RowBox[{"FileNameJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{
+            "basePath1", ",", "\"\<ppf\>\"", ",", "\"\<test-set\>\""}], "}"}],
+            "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"algoData", "=", 
+            RowBox[{"LoadAlgorithmJSON", "[", "#", "]"}]}], ";", 
+           RowBox[{"AppendAlgorithmAnalysis", "[", 
+            RowBox[{"ExaBoundsAlgInfo", ",", "algoData"}], "]"}], ";"}], 
+          "&"}], ",", "fileNamesTrain"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"algoData", "=", 
+            RowBox[{"LoadAlgorithmJSON", "[", "#", "]"}]}], ";", 
+           RowBox[{"AppendAlgorithmAnalysis", "[", 
+            RowBox[{"ExaBoundsTestAlgInfo", ",", "algoData"}], "]"}], ";"}], 
+          "&"}], ",", "fileNamesTest"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"MergeAlgorithms", "[", 
+        RowBox[{
+        "ExaBoundsAlgInfo", ",", "\"\<PPF\>\"", ",", "\"\<CORRELATION\>\"", 
+         ",", "\"\<SKA-CSP\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"MergeAlgorithms", "[", 
+        RowBox[{
+        "ExaBoundsTestAlgInfo", ",", "\"\<PPF\>\"", ",", 
+         "\"\<CORRELATION\>\"", ",", "\"\<SKA-CSP\>\""}], "]"}], ";"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Get", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"dataDirectory", ",", "\"\<inputData.mathematica\>\""}], 
+          "}"}], "]"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ InitializationCell->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Clustering for Multi-threaded Workload", "Title"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "Clustering", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"clusteringNotRead", " ", "=", " ", "False"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"<<", "\"\<ThreadClustering`\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearThreadClusteringCache", "[", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"algorithms", " ", "=", " ", 
+     RowBox[{"Keys", "[", "ExaBoundsAlgInfo", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"algorithms", " ", "=", " ", 
+     RowBox[{"{", "\"\<SKA-CSP\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"clusteringTraining", "=", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "\[Rule]", "Null"}], " ", "&"}], " ", "/@", " ", 
+       RowBox[{"Keys", "[", "ExaBoundsAlgInfo", "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"clusteringTest", "=", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "\[Rule]", "Null"}], " ", "&"}], " ", "/@", " ", 
+       RowBox[{"Keys", "[", "ExaBoundsAlgInfo", "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{"clusteringNotRead", ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Do", "[", 
+        RowBox[{"(*", " ", 
+         RowBox[{"For", " ", "each", " ", "algorithm"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"clusteringTraining", "[", "a", "]"}], "=", 
+           RowBox[{"MultiplerunsThreadClustering", "[", 
+            RowBox[{"ExaBoundsAlgInfo", "[", 
+             RowBox[{"[", "a", "]"}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"clusteringTest", "[", "a", "]"}], "=", 
+           RowBox[{"ExtendMultiplerunsThreadClustering", "[", 
+            RowBox[{
+             RowBox[{"clusteringTraining", "[", "a", "]"}], ",", 
+             RowBox[{"ExaBoundsAlgInfo", "[", 
+              RowBox[{"[", "a", "]"}], "]"}], ",", 
+             RowBox[{"ExaBoundsTestAlgInfo", "[", 
+              RowBox[{"[", "a", "]"}], "]"}]}], "]"}]}], ";"}], 
+         "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"a", ",", "algorithms"}], "}"}]}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Get", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"dataDirectory", ",", "\"\<clustering.m\>\""}], "}"}], 
+         "]"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Clustering", " ", "GUI"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"<<", "\"\<ThreadClustering`\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"algorithm", "=", "\"\<SKA-CSP\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"plot", "=", 
+    RowBox[{"MultiplerunsThreadClusteringGUI", "[", 
+     RowBox[{
+      RowBox[{"clusteringTraining", "[", 
+       RowBox[{"[", "algorithm", "]"}], "]"}], ",", 
+      RowBox[{"clusteringTest", "[", 
+       RowBox[{"[", "algorithm", "]"}], "]"}], ",", 
+      RowBox[{"ExaBoundsAlgInfo", "[", 
+       RowBox[{"[", "algorithm", "]"}], "]"}], ",", 
+      RowBox[{"ExaBoundsTestAlgInfo", "[", 
+       RowBox[{"[", "algorithm", "]"}], "]"}]}], 
+     RowBox[{"(*", 
+      RowBox[{",", 
+       RowBox[{"\"\<Predictor\>\"", "->", 
+        RowBox[{"multiThreadedExtrapolationModels", "[", 
+         RowBox[{"[", 
+          RowBox[{"\"\<Selected\>\"", ",", "algorithm"}], "]"}], "]"}]}]}], 
+      "*)"}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fitting Extrapolation model for Multi-threaded Workload", "Title"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Multi", " ", "Thread", " ", "Fit"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"fitNotRead", " ", "=", " ", "False"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modelNames", " ", "=", " ", 
+     RowBox[{"{", "\"\<Selected\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"multiThreadedExtrapolationModels", " ", "=", " ", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "\[Rule]", 
+         RowBox[{"Association", "[", 
+          RowBox[{"\"\<SKA-CSP\>\"", "\[Rule]", "Null"}], "]"}]}], " ", "&"}],
+        " ", "/@", " ", "modelNames"}], "]"}]}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Do", "[", 
+     RowBox[{"(*", " ", 
+      RowBox[{"For", " ", "each", " ", "model", " ", "type"}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Do", "[", 
+        RowBox[{"(*", " ", 
+         RowBox[{"For", " ", "each", " ", "algorithm"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{
+           "\"\<Requiring extrapolation model for \>\"", " ", "<>", " ", 
+            "a"}], "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"fitNotRead", "||", " ", 
+             RowBox[{"!", 
+              RowBox[{"FileExistsQ", "[", 
+               RowBox[{"FileNameJoin", "[", 
+                RowBox[{"{", 
+                 RowBox[{"dataDirectory", ",", 
+                  RowBox[{"StringJoin", "[", 
+                   RowBox[{
+                   "\"\<selectedModel\>\"", ",", "crtModelName", ",", 
+                    "\"\<-\>\"", ",", "a", ",", "\"\<.m\>\""}], "]"}]}], 
+                 "}"}], "]"}], "]"}]}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"crtModel", " ", "=", "\[IndentingNewLine]", 
+              RowBox[{"FitMultiThreadExtrapolationModel", "[", 
+               RowBox[{
+                RowBox[{"ExaBoundsAlgInfo", "[", 
+                 RowBox[{"[", "a", "]"}], "]"}], ",", 
+                RowBox[{"clusteringTraining", "[", 
+                 RowBox[{"[", "a", "]"}], "]"}], ",", 
+                RowBox[{"\"\<Verbose\>\"", "\[Rule]", "True"}]}], "]"}]}], 
+             ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Print", "[", "\"\<Loaded from file\>\"", "]"}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Get", "[", 
+              RowBox[{"FileNameJoin", "[", 
+               RowBox[{"{", 
+                RowBox[{"dataDirectory", ",", 
+                 RowBox[{"StringJoin", "[", 
+                  RowBox[{
+                  "\"\<selectedModel\>\"", ",", "crtModelName", ",", 
+                   "\"\<-\>\"", ",", "a", ",", "\"\<.m\>\""}], "]"}]}], "}"}],
+                "]"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"multiThreadedExtrapolationModels", "[", 
+            RowBox[{"crtModelName", ",", "a"}], "]"}], " ", "=", " ", 
+           "crtModel"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"a", ",", 
+           RowBox[{"{", "\"\<SKA-CSP\>\"", "}"}]}], "}"}]}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"crtModelName", ",", "modelNames"}], "}"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ InitializationCell->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Visualize FitMultiThreadModelGUI", "Title"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", " ", 
+  RowBox[{
+   RowBox[{"<<", "\"\<SingleThreadExtrapolation`\>\""}], 
+   "\[IndentingNewLine]", " ", 
+   RowBox[{"<<", "\"\<MultiThreadExtrapolation`\>\""}], "\[IndentingNewLine]",
+    " ", 
+   RowBox[{"<<", "\"\<ExtrapolationAnalytics`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"visualizedModel", " ", "=", " ", "\"\<Selected\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"algorithm", " ", "=", " ", "\"\<SKA-CSP\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"model", " ", "=", " ", 
+     RowBox[{"multiThreadedExtrapolationModels", "[", 
+      RowBox[{"visualizedModel", ",", "algorithm"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"FitMultiThreadModelGUI", "[", 
+    RowBox[{"model", ",", "\[IndentingNewLine]", 
+     RowBox[{"ExaBoundsAlgInfo", "[", 
+      RowBox[{"[", "algorithm", "]"}], "]"}], ",", 
+     RowBox[{"clusteringTraining", "[", "algorithm", "]"}], ",", 
+     RowBox[{"ExaBoundsTestAlgInfo", "[", 
+      RowBox[{"[", "algorithm", "]"}], "]"}], ",", 
+     RowBox[{"clusteringTest", "[", "algorithm", "]"}], ",", 
+     RowBox[{"\"\<Verbose\>\"", "\[Rule]", "True"}]}], "]"}]}]}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Prediction for DSE", "Title"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", " ", 
+  RowBox[{
+   RowBox[{"<<", "\"\<SingleThreadExtrapolation`\>\""}], 
+   "\[IndentingNewLine]", " ", 
+   RowBox[{"<<", "\"\<MultiThreadExtrapolation`\>\""}], "\[IndentingNewLine]",
+    " ", 
+   RowBox[{"<<", "\"\<ExtrapolationAnalytics`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"visualizedModel", " ", "=", " ", "\"\<Selected\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"algorithm", " ", "=", " ", "\"\<SKA-CSP\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"model", " ", "=", " ", 
+     RowBox[{"multiThreadedExtrapolationModels", "[", 
+      RowBox[{"visualizedModel", ",", "algorithm"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"exaConfiguration", " ", "=", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<channels\>\"", "\[Rule]", "512"}], ",", 
+       RowBox[{"\"\<inputs\>\"", "\[Rule]", "1024"}], ",", 
+       RowBox[{"\"\<processes\>\"", "\[Rule]", "1"}], ",", 
+       RowBox[{"\"\<repetitions\>\"", "\[Rule]", "1"}], ",", 
+       RowBox[{"\"\<samples\>\"", "\[Rule]", "768"}], ",", 
+       RowBox[{"\"\<threads\>\"", "\[Rule]", "t"}]}], "|>"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"confs", " ", "=", " ", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"exaConfiguration", "/.", 
+           RowBox[{"t", "\[Rule]", "#"}]}], ")"}], "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"ExtrapolateMultiThreadAlgorithm", "[", 
+           RowBox[{"model", ",", 
+            RowBox[{"exaConfiguration", "/.", 
+             RowBox[{"t", "\[Rule]", "#"}]}]}], "]"}], "}"}]}], " ", "&"}], "/@",
+        " ", 
+       RowBox[{"Range", "[", 
+        RowBox[{"2", ",", "100"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"predictedAlgorithm", " ", "=", " ", 
+     RowBox[{"<|", 
+      RowBox[{"\"\<SKA-CSP\>\"", "\[Rule]", 
+       RowBox[{"<|", 
+        RowBox[{"\"\<scalingParameters\>\"", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<channels\>\"", ",", "\"\<inputs\>\"", ",", "\"\<processes\>\"",
+            ",", "\"\<repetitions\>\"", ",", "\"\<samples\>\"", ",", 
+           "\"\<threads\>\""}], "}"}]}], "|>"}]}], "|>"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"predictedAlgorithm", "[", "\"\<SKA-CSP\>\"", "]"}], "=", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"predictedAlgorithm", "[", "\"\<SKA-CSP\>\"", "]"}], ",", 
+      "confs"}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input"]
+}, Open  ]]
+},
+WindowSize->{2560, 1398},
+WindowMargins->{{1592, Automatic}, {Automatic, -8}},
+TrackCellChangeTimes->False,
+Magnification:>1.2 Inherited,
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 29, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 39, 0, 108, "Title"],
+Cell[621, 24, 2329, 64, 221, "Input",
+ InitializationCell->True],
+Cell[2953, 90, 442, 11, 129, "Input",
+ InitializationCell->True],
+Cell[3398, 103, 292, 7, 83, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3727, 115, 28, 0, 108, "Title"],
+Cell[3758, 117, 8170, 191, 1072, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11965, 313, 55, 0, 108, "Title"],
+Cell[12023, 315, 2860, 72, 474, "Input",
+ InitializationCell->True],
+Cell[14886, 389, 1115, 28, 152, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16038, 422, 72, 0, 108, "Title"],
+Cell[16113, 424, 3730, 88, 543, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19880, 517, 49, 0, 108, "Title"],
+Cell[19932, 519, 1299, 28, 290, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21268, 552, 35, 0, 108, "Title"],
+Cell[21306, 554, 2773, 66, 428, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

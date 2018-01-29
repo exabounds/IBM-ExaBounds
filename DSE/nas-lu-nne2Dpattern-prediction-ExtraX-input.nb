@@ -1,0 +1,519 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23180,        510]
+NotebookOptionsPosition[     22946,        497]
+NotebookOutlinePosition[     23279,        512]
+CellTagsIndexPosition[     23236,        509]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"<<", " ", "\"\<nas-lu-predictedAlgorithms-CPC.m\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AppendAlgorithmAnalysis", "[", 
+   RowBox[{"ExaBoundsAlgInfo", ",", " ", "predictedAlgorithm"}], "]"}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"defaultProperties", " ", "=", " ", 
+    RowBox[{"GetDefaultAlgorithmProperties", "[", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"algName", "=", "\"\<LU\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"scalingConf", "=", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\"\<fusion\>\"", "\[Rule]", "0"}], ",", 
+     RowBox[{"\"\<IDT\>\"", "\[Rule]", "4"}], ",", 
+     RowBox[{"\"\<NITER\>\"", "\[Rule]", "50"}], ",", 
+     RowBox[{"\"\<NPC\>\"", "\[Rule]", "64"}], ",", 
+     RowBox[{"\"\<parallel\>\"", "\[Rule]", "0"}], ",", 
+     RowBox[{"\"\<PROBLEMSIZE\>\"", "\[Rule]", "800"}], ",", 
+     RowBox[{"\"\<unrolling\>\"", "\[Rule]", "0"}], ",", 
+     RowBox[{"\"\<vectorization\>\"", "\[Rule]", "0"}]}], 
+    "\[RightAssociation]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"myKeyValueListAllThreads", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"ExaBoundsAlgInfo", "[", 
+      RowBox[{"algName", ",", " ", "scalingConf"}], "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{"1", ",", " ", "All"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmpSwMergeState", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ExaBoundsMergeState", "[", 
+      RowBox[{"defaultProperties", ",", " ", "#"}], "]"}], " ", "&"}], "/@", 
+    "myKeyValueListAllThreads"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmpMergeState", " ", "=", " ", 
+   RowBox[{"MergeKeyValueList", "[", 
+    RowBox[{"ExaBoundsState", ",", " ", 
+     RowBox[{"predefinedconfig", "[", "\"\<Xeon E5-2697 v3\>\"", "]"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"clusters", " ", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<cluster1\>\"", ",", "\"\<cluster2\>\"", ",", "\"\<cluster3\>\"", 
+      ",", "\"\<cluster4\>\""}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"maxTime1", "=", "0"}], ";", 
+   RowBox[{"maxTime2", "=", "0"}], ";", 
+   RowBox[{"maxTime3", "=", "0"}], ";", 
+   RowBox[{"maxTime4", "=", "0"}], ";", 
+   RowBox[{"maxTime5", "=", "0"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"profile", "=", " ", 
+       RowBox[{"tmpSwMergeState", "[", 
+        RowBox[{"[", "cluster", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{" ", 
+        RowBox[{
+        "Sometimes", " ", "it", " ", "is", " ", "worth", " ", "checking", " ",
+          "the", " ", "extrapolated", " ", "data", " ", "temporal", " ", 
+         "reuse", " ", "distance", " ", 
+         RowBox[{"distribution", ".", " ", "If"}], " ", "it", " ", "is", " ", 
+         "not", " ", "as", " ", "expected", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"e", ".", "g", "."}], ",", " ", 
+           RowBox[{
+           "the", " ", "distribution", " ", "has", " ", "only", " ", "one", 
+            " ", "bin", " ", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1"}], "}"}]}]}], ")"}], " ", "then", " ", 
+         "the", " ", "extrapolation", " ", "model", " ", "might", " ", "not", 
+         " ", "have", " ", 
+         RowBox[{"worked", ".", " ", "In"}], " ", "this", " ", "case", " ", 
+         "either", " ", "change", " ", "the", " ", "extrapolation", " ", 
+         "model", " ", "or", " ", "use", " ", "the", " ", "temporal", " ", 
+         "reuse", " ", "distance", " ", "of", " ", "the", " ", "largest", " ",
+          "problem", " ", "size", " ", "for", " ", "which", " ", "the", " ", 
+         "distribution", " ", "still", " ", "makes", " ", 
+         RowBox[{"sense", "."}]}], ")"}], "\[IndentingNewLine]", "*)"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"cluster", "==", "\"\<cluster2\>\""}], ",", " ", 
+          RowBox[{"profile", " ", "=", " ", 
+           RowBox[{"SetKeyValue", "[", 
+            RowBox[{"profile", ",", " ", "\"\<D0dreuse\>\"", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"1", ",", "0.2358"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"2", ",", "0.3479"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"4", ",", "0.431775"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"8", ",", "0.636725"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"16", ",", "0.8444"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"32", ",", "0.89005555"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"64", ",", "0.9054"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"128", ",", "0.91"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"256", ",", "0.9192"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"512", ",", "0.9253"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"1024", ",", "0.9396"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"2048", ",", "0.9769"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"4096", ",", "0.9928"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"8192", ",", "0.9995"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"16384", ",", "0.9995"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"32768", ",", "0.9995"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"65536", ",", "0.9995"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"37217", ",", "0.9995"}], "}"}]}], "}"}]}], "]"}]}]}],
+          "]"}], ";"}], " ", "\[IndentingNewLine]", "*)"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"profile", "  ", "=", " ", 
+       RowBox[{"GetAlgorithmVectorProperties", "[", 
+        RowBox[{"ExaBoundsState", ",", " ", "profile"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tmpSwState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"profile", ",", " ", "\"\<CommunicationPattern\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<type\>\"", "\[Rule]", "\"\<nne2D\>\""}], ",", 
+           RowBox[{"\"\<D1\>\"", "\[Rule]", "8"}], ",", 
+           RowBox[{"\"\<D2\>\"", "\[Rule]", "8"}]}], "|>"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"compTime", " ", "=", " ", 
+       RowBox[{"MCExecutionSeconds", "[", 
+        RowBox[{"tmpMergeState", ",", " ", "tmpSwState", ",", " ", "1"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpMergeState", ",", " ", "\"\<networkConfiguration\>\"", ",", " ", 
+         "\"\<full-mesh\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<mappingDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{"\"\<type\>\"", " ", "\[Rule]", " ", "\"\<linear\>\""}], 
+          "|>"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", "\"\<nodeStackLatency\>\"", ",", "0.000001"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<switchLatency\>\"", ",", "0.0000001"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<switchSwitchBandwidth\>\"", ",", 
+         RowBox[{"5", "*", "1024", "*", "1024", "*", "1024"}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<nodeSwitchBandwidth\>\"", ",", 
+         RowBox[{"5", "*", "1024", "*", "1024", "*", "1024"}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", "\"\<nodeSwitchLinkLatency\>\"", ",", "0.0000001"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", "\"\<switch1Switch2LinkLatency\>\"", ",", 
+         "0.0000001"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", " ", "\"\<topologyDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<a\>\"", "\[Rule]", "16"}], ",", " ", 
+           RowBox[{"\"\<p\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState2", ",", "\"\<mappingDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<type\>\"", " ", "\[Rule]", " ", "\"\<linear\>\""}], 
+           ",", 
+           RowBox[{"\"\<d11\>\"", "\[Rule]", " ", "4"}], ",", 
+           RowBox[{"\"\<d12\>\"", "\[Rule]", "1"}]}], "|>"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"commTime", " ", "=", " ", 
+       RowBox[{"GetCommunicationTime", "[", " ", 
+        RowBox[{"tmpState2", ",", "tmpSwState"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"maxTime1", " ", "<", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}], ",", " ", 
+        RowBox[{"maxTime1", " ", "=", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", " ", "\"\<networkConfiguration\>\"", ",", " ", 
+         "\"\<2DhyperX\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", " ", "\"\<topologyDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<d1\>\"", "\[Rule]", "4"}], ",", " ", 
+           RowBox[{"\"\<d2\>\"", "\[Rule]", "4"}], ",", " ", 
+           RowBox[{"\"\<p\>\"", "\[Rule]", " ", "4"}]}], "|>"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"commTime", " ", "=", " ", 
+       RowBox[{"GetCommunicationTime", "[", 
+        RowBox[{"tmpState2", ",", "tmpSwState"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"maxTime2", " ", "<", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}], ",", " ", 
+        RowBox[{"maxTime2", " ", "=", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", " ", "\"\<networkConfiguration\>\"", ",", " ", 
+         "\"\<2DhyperX\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", " ", "\"\<topologyDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<d1\>\"", "\[Rule]", "8"}], ",", " ", 
+           RowBox[{"\"\<d2\>\"", "\[Rule]", "4"}], ",", " ", 
+           RowBox[{"\"\<p\>\"", "\[Rule]", " ", "2"}]}], "|>"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"commTime", " ", "=", " ", 
+       RowBox[{"GetCommunicationTime", "[", 
+        RowBox[{"tmpState2", ",", " ", "tmpSwState"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"maxTime3", " ", "<", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}], ",", " ", 
+        RowBox[{"maxTime3", " ", "=", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "ExaBoundsState", ",", " ", "\"\<networkConfiguration\>\"", ",", " ", 
+         "\"\<fat-tree-2L\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<mappingDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{"\"\<type\>\"", " ", "\[Rule]", " ", "\"\<linear\>\""}], 
+          "|>"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", "\"\<nodeStackLatency\>\"", ",", "0.0000009"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<switchLatency\>\"", ",", "0.0000007"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<switchSwitchBandwidth\>\"", ",", 
+         RowBox[{"7", "*", "1024", "*", "1024", "*", "1024"}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", "\"\<nodeSwitchBandwidth\>\"", ",", 
+         RowBox[{"7", "*", "1024", "*", "1024", "*", "1024"}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", "\"\<nodeSwitchLinkLatency\>\"", ",", 
+         "0.0000000025"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", "\"\<switch1Switch2LinkLatency\>\"", ",", 
+         "0.000000012"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", " ", "\"\<topologyDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<w0\>\"", "\[Rule]", "1"}], ",", " ", 
+           RowBox[{"\"\<w1\>\"", "\[Rule]", "4"}], ",", " ", 
+           RowBox[{"\"\<m1\>\"", "\[Rule]", "4"}], ",", " ", 
+           RowBox[{"\"\<m2\>\"", "\[Rule]", "16"}]}], "|>"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState2", ",", "\"\<mappingDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<type\>\"", " ", "\[Rule]", " ", "\"\<linear\>\""}], 
+           ",", 
+           RowBox[{"\"\<d11\>\"", "\[Rule]", " ", "4"}], ",", 
+           RowBox[{"\"\<d12\>\"", "\[Rule]", "1"}]}], "|>"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"commTime", " ", "=", " ", 
+       RowBox[{"GetCommunicationTime", "[", 
+        RowBox[{"tmpState2", ",", "tmpSwState"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"maxTime4", " ", "<", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}], ",", " ", 
+        RowBox[{"maxTime4", " ", "=", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"tmpState", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{
+        "tmpState", ",", " ", "\"\<networkConfiguration\>\"", ",", " ", 
+         "\"\<fat-tree-3L\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState", ",", " ", "\"\<topologyDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<w0\>\"", "\[Rule]", "1"}], ",", " ", 
+           RowBox[{"\"\<w1\>\"", "\[Rule]", "4"}], ",", " ", 
+           RowBox[{"\"\<w2\>\"", "\[Rule]", " ", "2"}], ",", 
+           RowBox[{"\"\<m1\>\"", "\[Rule]", "2"}], ",", " ", 
+           RowBox[{"\"\<m2\>\"", "\[Rule]", "4"}], ",", " ", 
+           RowBox[{"\"\<m3\>\"", "\[Rule]", "8"}]}], "|>"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tmpState2", " ", "=", " ", 
+       RowBox[{"SetKeyValue", "[", 
+        RowBox[{"tmpState2", ",", "\"\<mappingDescription\>\"", ",", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<type\>\"", " ", "\[Rule]", " ", "\"\<linear\>\""}], 
+           ",", 
+           RowBox[{"\"\<d11\>\"", "\[Rule]", " ", "8"}], ",", 
+           RowBox[{"\"\<d12\>\"", "\[Rule]", "1"}], ",", " ", 
+           RowBox[{"\"\<d21\>\"", "\[Rule]", "2"}], ",", " ", 
+           RowBox[{"\"\<d22\>\"", "\[Rule]", "1"}]}], "|>"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"commTime", " ", "=", " ", 
+       RowBox[{"GetCommunicationTime", "[", 
+        RowBox[{"tmpState2", ",", "tmpSwState"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"maxTime5", " ", "<", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}], ",", " ", 
+        RowBox[{"maxTime5", " ", "=", " ", 
+         RowBox[{"compTime", "+", "commTime"}]}]}], "]"}], ";"}], 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"cluster", ",", " ", "clusters"}], "}"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmp", "=", 
+   RowBox[{
+    RowBox[{"ToString", "[", "\"\<Full-mesh\>\"", "]"}], "<>", " ", 
+    "\"\< \>\"", " ", "<>", " ", 
+    RowBox[{"ToString", "[", "maxTime1", "]"}], " ", "<>", "\"\<\\n\>\""}]}], 
+  ";", " ", 
+  RowBox[{"Print", "[", "tmp", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmp", "=", 
+   RowBox[{
+    RowBox[{"ToString", "[", "\"\<2D Hyper-X (1)\>\"", "]"}], "<>", 
+    "\"\< \>\"", " ", "<>", " ", 
+    RowBox[{"ToString", "[", "maxTime2", "]"}], " ", "<>", "\"\<\\n\>\""}]}], 
+  ";", 
+  RowBox[{"Print", "[", "tmp", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmp", "=", 
+   RowBox[{
+    RowBox[{"ToString", "[", "\"\<2D Hyper-X (2) \>\"", "]"}], "<>", 
+    "\"\< \>\"", " ", "<>", " ", 
+    RowBox[{"ToString", "[", "maxTime3", "]"}], " ", "<>", "\"\<\\n\>\""}]}], 
+  ";", 
+  RowBox[{"Print", "[", "tmp", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmp", "=", 
+   RowBox[{
+    RowBox[{"ToString", "[", "\"\<Fat-tree 2L\>\"", "]"}], "<>", " ", 
+    "\"\< \>\"", " ", "<>", " ", 
+    RowBox[{"ToString", "[", "maxTime4", "]"}], " ", "<>", "\"\<\\n\>\""}]}], 
+  ";", 
+  RowBox[{"Print", "[", "tmp", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmp", "=", 
+   RowBox[{
+    RowBox[{"ToString", "[", "\"\<Fat-tree 3L\>\"", "]"}], "<>", "\"\< \>\"", 
+    " ", "<>", " ", 
+    RowBox[{"ToString", "[", "maxTime5", "]"}], " ", "<>", "\"\<\\n\>\""}]}], 
+  ";", 
+  RowBox[{"Print", "[", "tmp", "]"}], ";"}], "\[IndentingNewLine]"}], "Input",\
+
+ CellChangeTimes->{{3.700826608247858*^9, 3.700826613267797*^9}, {
+   3.700826682830991*^9, 3.700826703863173*^9}, {3.700826792015283*^9, 
+   3.700826820591711*^9}, 3.700826870111875*^9, {3.700828646452471*^9, 
+   3.7008286493325787`*^9}, 3.7008293027666883`*^9, {3.7008293873276052`*^9, 
+   3.700829472903226*^9}, {3.700829523983787*^9, 3.70082960430366*^9}, {
+   3.700829642224194*^9, 3.700829675900147*^9}, {3.70082970607373*^9, 
+   3.700829750448995*^9}, {3.700829831073229*^9, 3.70082988644133*^9}, {
+   3.70082992492222*^9, 3.70082993230583*^9}, {3.700829983746716*^9, 
+   3.700830104159677*^9}, 3.700830185066505*^9, 3.7008303005393553`*^9, 
+   3.7008304873475103`*^9, {3.700830518885021*^9, 3.700830584851313*^9}, {
+   3.7008307898121347`*^9, 3.700830892868775*^9}, {3.7008309634208393`*^9, 
+   3.700830968572373*^9}, {3.700831010933652*^9, 3.700831012020598*^9}, {
+   3.7008311180367804`*^9, 3.700831280885953*^9}, {3.7008313707507763`*^9, 
+   3.700831386278113*^9}, {3.7008314642308607`*^9, 3.700831482759063*^9}, {
+   3.700832141746585*^9, 3.700832220172225*^9}, {3.7008322685578957`*^9, 
+   3.700832273372273*^9}, {3.7008323220276546`*^9, 3.700832583714376*^9}, {
+   3.700832621668105*^9, 3.700832662883153*^9}, {3.700833101373866*^9, 
+   3.700833258659997*^9}, {3.700833335478496*^9, 3.700833342886916*^9}, {
+   3.7009083651262503`*^9, 3.7009083655167418`*^9}, {3.7009086626953793`*^9, 
+   3.70090866958184*^9}, {3.7009087552300673`*^9, 3.7009087554212837`*^9}, {
+   3.7009088750012913`*^9, 3.700908982798655*^9}, {3.700909336314213*^9, 
+   3.7009094427716303`*^9}, {3.700909526571107*^9, 3.7009095839931183`*^9}, {
+   3.703824769005136*^9, 3.70382484653341*^9}, {3.703824898413866*^9, 
+   3.703824899262556*^9}, 3.703824939452486*^9, {3.703824989229972*^9, 
+   3.7038250055185413`*^9}, {3.703825119078281*^9, 3.703825155197249*^9}, {
+   3.703825276909381*^9, 3.703825293976747*^9}, {3.7038254504428167`*^9, 
+   3.7038254507741833`*^9}, {3.703825549118507*^9, 3.703825575967085*^9}, {
+   3.703825618696658*^9, 3.703825625654463*^9}, {3.703825684928398*^9, 
+   3.703825725861825*^9}, {3.703828397820788*^9, 3.703828427075678*^9}, {
+   3.703828593685059*^9, 3.703828659300503*^9}, {3.703828990158822*^9, 
+   3.703828991148528*^9}, {3.703829035461253*^9, 3.703829037620945*^9}, {
+   3.703829094890493*^9, 3.7038292517360163`*^9}, 3.70383268103964*^9, {
+   3.7038333946249247`*^9, 3.703833639843349*^9}, {3.703833675883931*^9, 
+   3.703833723211397*^9}}]
+},
+WindowSize->{1024, 718},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Linux x86 (64-bit) (July 29, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 22384, 475, 2101, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

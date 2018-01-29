@@ -1,0 +1,68 @@
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage{rotating}
+
+\usepackage{graphicx}
+\usepackage[caption=false,font=small]{subfig}
+
+\usepackage{hyperref}
+
+\usepackage{mma} % Mathematica
+
+\usepackage{booktabs}
+\usepackage{threeparttable} % For table with footnotes
+
+% fun with danger signs
+%\usepackage{stackengine}
+%\usepackage{scalerel}
+%\usepackage{xcolor}
+%\newcommand\dangersign[1][2ex]{%
+%  \renewcommand\stacktype{L}%
+%  \scaleto{\stackon[1.3pt]{\color{red}$\triangle$}{\tiny\bfseries !}}{#1}%
+%}
+
+% make straight double quotes with \mathtt{"} in math mode
+\DeclareMathSymbol{"}{\mathalpha}{letters}{`"}
+
+\title{IBM ExaBounds manual}
+\author{R. Jongerius\\IBM Research, The Netherlands}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\input{content/000-abstract}
+
+\tableofcontents
+
+\input{content/050-introduction}
+
+\input{content/100-setup}
+\input{content/150-workflows}
+\input{content/200-enterprisecdf}
+\input{content/300-notebook}
+
+\section{Contributors}
+\begin{itemize}
+  \item Rik Jongerius
+  \item Giovanni Mariani
+  \item Andreea Anghel
+  \item Gero Dittmann
+  \item Sandeep Poddar
+  \item Phillip Stanley-Marbell
+\end{itemize}
+
+\section{Acknowledgement}
+This work was conducted in the context of the joint ASTRON and IBM DOME
+project and was funded by the Dutch Ministry of Economische Zaken, and the
+Province of Drenthe.
+
+\appendix
+
+\input{content/901-api}
+\input{content/902-architecture-param}
+
+\bibliographystyle{ieeetr}
+\bibliography{manual}
+
+\end{document}

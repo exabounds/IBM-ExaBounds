@@ -1,0 +1,14 @@
+\section{Setup}
+\label{sec:100:setup}
+
+IBM ExaBounds consists of an executable notebook (ExaBoundsLite.nb) and a large set of supporting packages. It can only be executed with the full version of Wolfram Mathematica (version 11.2 and later).
+
+\subsection{McPAT}
+
+In order to predict the power consumption of compute nodes, McPAT~\cite{Li2009} has to be available on the system. McPAT is used to predict power consumption of the processor cores and caches. ExaBounds expects the McPAT executable named \textsc{mcpat} (or \textsc{mcpat.exe} for Windows) to be available in a directory listed in the \textsc{\$PATH} environment variable. ExaBounds is tested with McPAT 1.0, it can be downloaded from \url{http://www.hpl.hp.com/research/mcpat/}.
+
+\subsection{CACTI}
+
+The power consumption of the main memory can be predicted using either the build-in power model IBM Memory-Scheduler-Agnostic Power Model~\cite{Poddar2017} or CACTI~\cite{Thoziyoor2008}. In case CACTI is desired, it needs to be available via the \textsc{\$PATH} environment variable as well. ExaBounds only works with CACTI 5.3, which can be downloaded from \url{http://www.hpl.hp.com/research/cacti/}. The executable name has to be \textsc{cacti53} (or \textsc{cacti53.exe} for Windows).
+
+The memory power model can be selected in the CDF or notebook and is default set to IBM Memory-Scheduler-Agnostic Power Model.

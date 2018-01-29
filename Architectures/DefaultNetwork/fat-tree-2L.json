@@ -1,0 +1,27 @@
+{
+  "id": "fat-tree-2L",
+  "name": "Fat tree 2L",
+  "config": {
+	"topologyDescription": {
+		"w0": 1,
+		"w1": 4,
+		"m1": 4,
+		"m2": 8
+	},
+	"nodeStackLatency": 0.000001,
+	"nodeSwitchLinkLatency": 0.0000001,
+	"nodeSwitchLinkType": "electrical",
+	"switch1Switch2LinkLatency": 0.0000001,
+	"switch1Switch2LinkType": "electrical",
+	"switchLatency": 0.0000001,
+	"nodeSwitchBandwidth": 5368709120,
+	"switchSwitchBandwidth": 5368709120,
+	"electricalLinkEnergyPerBit": 5,
+	"opticalLinkEnergyPerBit": 5,
+	"switchLogicEnergyPerBit": 25,
+	"switchStaticPower": 100,
+	"mappingDescription": {
+		"type": "linear"
+	}
+  }
+}

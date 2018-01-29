@@ -1,0 +1,120 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4468,        111]
+NotebookOptionsPosition[      4080,         94]
+NotebookOutlinePosition[      4430,        109]
+CellTagsIndexPosition[      4387,        106]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Import", " ", "and", " ", "initialize", " ", "DSE"}], " ", "*)"}],
+   "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"<<", "\"\<DSE`\>\""}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DSEInit", "[", "dataDSE", "]"}], ";"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.631537421908006*^9, 3.6315374252401967`*^9}, 
+   3.631862658265065*^9, {3.631868078092062*^9, 3.631868079730156*^9}, {
+   3.6318700882950387`*^9, 3.631870089748122*^9}, {3.631882851660062*^9, 
+   3.631882852282097*^9}, {3.635669223953764*^9, 3.6356692327062645`*^9}, 
+   3.635682757829345*^9, {3.635684898897807*^9, 3.635684902674023*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "display", " ", "config", " ", "table", " ", "and", " ", "selection", " ", 
+    "list"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"pickMachineConfig", "[", " ", 
+    RowBox[{"predefinedconfigStage", ",", " ", "predefinedConfigID2Name"}], 
+    " ", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Selection", " ", "box", " ", "for", " ", "algorithm", " ", "to", " ", 
+     "do", " ", "DSE", " ", "on"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"AlgorithmPicker", "[", 
+    RowBox[{"selectedAlgorithm", ",", "ExaBoundsAlgInfo"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6315314000855775`*^9, 3.631531423883939*^9}, {
+  3.635665611588148*^9, 3.635665646996174*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Display", " ", "the", " ", "DSE", " ", "GUI"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"DSEGUI", "[", 
+   RowBox[{"dataDSE", ",", " ", "ExaBoundsState", ",", " ", 
+    RowBox[{"GetAlgorithmKeyValueList", "[", 
+     RowBox[{"ExaBoundsAlgInfo", ",", "selectedAlgorithm"}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6315374594201517`*^9, 3.631537463167366*^9}, {
+  3.631537619478307*^9, 3.631537625639659*^9}, {3.631861090467595*^9, 
+  3.631861124204525*^9}, {3.6318626572890096`*^9, 3.631862660983221*^9}, {
+  3.6318628251436105`*^9, 3.6318628255916357`*^9}, {3.6318677489652367`*^9, 
+  3.6318677506043305`*^9}, {3.631868076220955*^9, 3.6318680764969707`*^9}, {
+  3.631869446441327*^9, 3.631869448369437*^9}, {3.6318700926122856`*^9, 
+  3.631870094484393*^9}, {3.631877481099883*^9, 3.631877481315895*^9}, {
+  3.6318776311044626`*^9, 3.63187763123347*^9}, {3.631882856648347*^9, 
+  3.631882857154376*^9}, {3.6318829687617593`*^9, 3.631882968861765*^9}, {
+  3.631883178620763*^9, 3.631883179328803*^9}, {3.635245003011203*^9, 
+  3.6352450030682063`*^9}, {3.6356691159385853`*^9, 3.6356691260581646`*^9}, {
+  3.6356825010776596`*^9, 3.6356825034527955`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DSEParetoPlot", "[", 
+  RowBox[{"dataDSE", ",", " ", "ExaBoundsState", ",", 
+   RowBox[{"GetAlgorithmKeyValueList", "[", 
+    RowBox[{"ExaBoundsAlgInfo", ",", "selectedAlgorithm"}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.631946538747706*^9, 3.631946541111841*^9}, {
+  3.631946583818284*^9, 3.631946610167791*^9}, {3.6319632107252884`*^9, 
+  3.631963214304493*^9}, {3.6319705771616244`*^9, 3.631970577572648*^9}, {
+  3.6332411093653307`*^9, 3.633241109945364*^9}, {3.6332422329735975`*^9, 
+  3.6332422336426363`*^9}, {3.635669144810237*^9, 3.6356691468053513`*^9}, {
+  3.635684383688339*^9, 3.6356843871095347`*^9}, {3.6356994795663404`*^9, 
+  3.6356994853851504`*^9}, {3.635755096511714*^9, 3.6357550999679117`*^9}, {
+  3.6357583503218217`*^9, 3.635758350435828*^9}}]
+},
+WindowSize->{2560, 1398},
+WindowMargins->{{1592, Automatic}, {Automatic, -8}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 689, 14, 72, "Input",
+ InitializationCell->True],
+Cell[1250, 36, 782, 18, 92, "Input"],
+Cell[2035, 56, 1235, 21, 52, "Input"],
+Cell[3273, 79, 803, 13, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
