@@ -13,7 +13,7 @@ The complete tool flow is this:
 
 ## Getting started
 
-Set-up and use of the tools is described in the documentation for [_IBM ExaBounds_](https://github.com/exabounds/IBM-ExaBounds/blob/master/Documentation/ExaBounds/Manual.pdf) the [_IBM Exascale Extrapolator_](https://github.com/exabounds/IBM-ExaBounds/blob/master/Documentation/ExtrAx/ExtrAx.pdf).
+Setting up and using the tools is described in the documentation for [_IBM ExaBounds_](https://github.com/exabounds/IBM-ExaBounds/blob/master/Documentation/ExaBounds/Manual.pdf) and the [_IBM Exascale Extrapolator_](https://github.com/exabounds/IBM-ExaBounds/blob/master/Documentation/ExtrAx/ExtrAx.pdf).
 
 ## Background
 
